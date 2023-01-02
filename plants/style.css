@@ -30,19 +30,23 @@
     scroll-behavior: smooth;
    }
 
+   * {
+  box-sizing: border-box;
+   }
+
    body {
-    margin: 0;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
    }
-
+   
    header {
-    max-width: 1440px;
+    max-width: 100%;
     max-height: 134px;
-    font-family: "Inika";
+    font-family: "Inika", sans-serif;
     background-color: #EDF2EC; 
    }
 
@@ -75,17 +79,21 @@
     list-style: none;
    }
 
-   .nav_link {
+   .nav-link {
+    transition: .3s;
+  }
+
+   .nav_item a {
     font-weight: 400;
     line-height: 50px;
     text-decoration: none;
     font-size: 16px;
     color: #010201;
 
-    transition: 0.3s;
+    transition: color 0.5s;
    }
 
-   .nav-link:hover {
+   .nav-item a:hover {
     color: #E06733;
     font-weight: 700;
    }
@@ -99,6 +107,131 @@
     margin-right: 0px;
    }
 
-  
+   /* main-welcome section*/
+
+   .section-welcome {
+    background-color: #EDF2EC;
+   }
+
+   .welcome {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    margin: 0 109px;
+    padding-top: 62px;
+    padding-bottom: 62px;
+    
+   }
+
+   .welcome-content {
+    width: 549px;
+    height: 340px;
+   }
+
+   .leaves {
+    width: 448px;
+    max-height: 407px;
+   }
+
+  h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 50px;
+    color: #717171;
+  }
+
+  .text-colored {
+    color: #499A18;
+  }
+
+  .welcome-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+    color: #636060;
+  }
+
+  .button-learn {
+    font-family:"Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    padding: 14px 27px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+
+    color: #000000;
+
+    border: 2px solid #E06733;
+    border-radius: 10px;
+    background-color: rgba(224, 103, 51, 0);
+  }
+
+  /* main-about-us section*/
+  .section-about-us {
+    background-color: #FFFFFF;
+  }
+
+  .about {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    margin:0 109px;
+    padding-top: 93px;
+    padding-bottom: 93px;
+    
+   }
+
+   .about-content {
+    width: 605px;
+    
+    
+   }
+
+   .houseplant {
+    width: 464px;
+    max-height: 479px;
+   }
+
+   .about-content h2 {
+    margin-right: 108px;
+    margin-bottom: 40px;
+    margin-top: 0;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    
+    color: #499A18;
+    text-align:left
+
+
+   }
+
+   .about-text {
+    color: #636060;
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+   }
+
+   .oranged-text {
+    color: #E06733;
+
+   }
+
+
    
 
