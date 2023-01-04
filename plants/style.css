@@ -298,7 +298,7 @@
 
    .layout-3-column {
     margin: 0 109px 0 109px;
-    padding-bottom: 121px;
+    padding-bottom: 119px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -337,6 +337,137 @@
     border: 1px solid #E3E1D5;
     border-radius: 0px 0px 20px 20px;
    }
+
+   /* main-prices section*/
+
+   .section-prices {
+    background-color: #FFFFFF;
+   }
+
+   .prices {
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+
+    margin: 0 109px 0 109px;
+    padding-top: 40px;
+    padding-bottom: 115px;
+   }
+
+   .prices-content {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+   }
+
+   .prices-content h2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #000000;
+    text-align: left;
+
+    width: 135px;
+    margin: 0;
+   }
+
+   .prices-accourdion {
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+
+    width: 332px;
+    margin-top: 60px;
+   }
+
+   .prices-items {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 250px;
+    margin: 34px 41px;
+
+   }
+
+   .prices-button {
+    background: #EDF2EC;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 0;
+    
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000000;
+
+    padding: 16px 110px 16px 40px;
+    
+    margin-bottom: 32px;
+   
+   }
+
+   .prices-button:last-child {
+    margin-bottom: 0;
+   }
+
+   .contact-form {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
+
+
+   
+
+   .contact-form-text {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: right;
+    color: #000000;
+
+    max-width: 452px;
+   }
+
+   .contact-form-text p {
+    margin: 0;
+
+   }
+
+   .button-contact-us {
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: #E06733;
+
+    border: 1px solid #E06733;
+    border-radius: 5px;
+
+    background: #FFFFFF;
+    padding: 12px 32px;
+    margin:38px 0;
+   }
+
+   .prices-image {
+    width: 152px;
+    align-self: flex-end;
+    
+   }
+
+   
+
+
+
 
    
 
