@@ -56,16 +56,35 @@
     justify-content: space-between;
     align-items: center;
    }
-
    .logo {
     display:flex;
-    align-items: center;
-    font-weight: 700;
-    line-height: 21px;
+    align-items:flex-start;
     margin-top: 10px;
-    padding:0 10px 0 0;
+    
     border-color: #499A18;
     border: 1px;
+    width: 79px;
+    height: 21px;
+   }
+
+   .logo-text {
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    padding-top: 4px;
+   }
+
+   .logo p {
+    margin: 0px;
+   }
+
+   .logo-image {
+    background-image: url(./assets/img/logo.svg);
+    width: 20px;
+    height: 21px;
    }
 
    .nav-list {
