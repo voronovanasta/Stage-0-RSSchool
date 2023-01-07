@@ -46,7 +46,6 @@
    header {
     max-width: 100%;
     max-height: 134px;
-    font-family: "Inika", sans-serif;
     background-color: #EDF2EC; 
    }
 
@@ -87,10 +86,6 @@
     width: 20px;
     height: 21px;
     margin: 0;
-    
-    
-
-    
    }
 
    .nav-list {
@@ -103,21 +98,22 @@
     list-style: none;
    }
 
-   .nav-link {
-    transition: .3s;
-  }
-
-   .nav_item a {
+   .nav_item {
+    font-family: 'Inika';
+    font-style: normal;
     font-weight: 400;
     line-height: 50px;
-    text-decoration: none;
     font-size: 16px;
     color: #010201;
-
-    transition: color 0.5s;
    }
 
-   .nav-item a:hover {
+   .nav_link {
+    color: #010201;
+    text-decoration: none;
+    transition: color 0.2s;
+    transition: .3s;
+  }
+   .nav_link:hover {
     color: #E06733;
     font-weight: 700;
    }
@@ -198,6 +194,13 @@
     border: 2px solid #E06733;
     border-radius: 10px;
     background-color: rgba(224, 103, 51, 0);
+    transition: all 0.3s ease;
+    
+  }
+
+  .button-learn:hover {
+    background: #E06733;
+    color: #FFFFFF;    
   }
 
 
@@ -312,7 +315,17 @@
 
     padding: 11px 40px;
     margin: 0 38px 0 0;
+
+    transition: all 0.3s ease;
    }
+
+
+  .button-service:hover {
+    background: #E06733;
+    color: #FFFFFF;
+    
+
+  }
 
    .button-service:last-child {
     margin-right: 0;
@@ -436,6 +449,12 @@
     color: #000000;
 
     margin-bottom: 32px;
+
+    transition:all 0.3s ease;
+   }
+
+   .prices-button:hover {
+    background: #D6E7D2;
    }
 
    .prices-button summary {
@@ -496,11 +515,19 @@
 
     border: 1px solid #E06733;
     border-radius: 5px;
+    cursor: pointer;
 
     background: #FFFFFF;
     padding: 12px 32px;
     margin:38px 0;
+
+    transition: all 0.3s ease;
    }
+
+   .button-contact-us:hover {
+    background: #E06733;
+    color: #FFFFFF;    
+  }
 
    .prices-image {
     width: 152px;
@@ -545,6 +572,14 @@
     margin-right: 109px;
     margin-bottom: 352px;
     width: 450px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+   }
+
+   .contact-details:hover {
+    background-color: #C1E698;
    }
 
    .contact-details summary {
@@ -611,7 +646,12 @@
 
   .footer-link {
     text-decoration: none;
-    transition: .3s;
+    transition: all .3s ease;
+    color: #000000;
+  }
+
+  .footer-link:hover {
+    color:#E06733;
   }
 
   .rsschool {
@@ -641,6 +681,13 @@
     margin-right: 20px;
     width:32px;
     height: 32px;
+
+    transition: all 0.3s ease;
+  }
+
+  .media-item:hover {
+    border: 1px solid #E06733;
+
   }
 
   .media-item:last-child {
