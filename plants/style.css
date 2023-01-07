@@ -1,0 +1,689 @@
+@font-face {
+    font-family: 'Inika';
+    src: url("assets/fonts/Inika/Inika-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+   }
+   
+   @font-face {
+    font-family: 'Inika';
+    src: url("assets/fonts/Inika/Inika-Bold.ttf");
+    font-weight: 700;
+    font-style: bold;
+   }
+
+   @font-face {
+    font-family: 'Inter';
+    src: url("assets/fonts/Inter/static/Inter-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+   }
+
+   @font-face {
+    font-family: 'Inter';
+    src: url("assets/fonts/Inter/static/Inter-Bold.ttf");
+    font-weight: 700;
+    font-style: bold;
+   }
+
+   html {
+    scroll-behavior: smooth;
+   }
+
+   * {
+    box-sizing: border-box;
+   }
+
+   body {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
+   
+   header {
+    max-width: 100%;
+    max-height: 134px;
+    font-family: "Inika", sans-serif;
+    background-color: #EDF2EC; 
+   }
+
+   .wrapper {
+    margin: 42px 110px 42px 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+   }
+
+   .logo {
+    display:flex;
+    align-items:flex-start;
+    
+    
+    border-color: #499A18;
+    border: 1px;
+    width: 79px;
+    height: 21px;
+    margin-top: 10px;
+
+   }
+
+   .logo-text {
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    padding-top: 0px;
+    
+    margin: 4px 0 0 1px ;
+   }
+
+   .logo-image {
+    background-image: url(./assets/img/logo.svg);
+    width: 20px;
+    height: 21px;
+    margin: 0;
+    
+    
+
+    
+   }
+
+   .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    margin: 0;
+
+    list-style: none;
+   }
+
+   .nav-link {
+    transition: .3s;
+  }
+
+   .nav_item a {
+    font-weight: 400;
+    line-height: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #010201;
+
+    transition: color 0.5s;
+   }
+
+   .nav-item a:hover {
+    color: #E06733;
+    font-weight: 700;
+   }
+
+   .nav_item {
+    margin-right: 46px;
+    
+   }
+
+   .nav_item:last-child {
+    margin-right: 0px;
+   }
+
+   /* main-welcome section*/
+
+   .section-welcome {
+    background-color: #EDF2EC;
+   }
+
+   .welcome {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    margin: 0 109px;
+    padding-top: 62px;
+    padding-bottom: 62px;
+    
+   }
+
+   .welcome-content {
+    width: 549px;
+    height: 340px;
+   }
+
+   .leaves {
+    width: 448px;
+    max-height: 407px;
+   }
+
+  h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 50px;
+    color: #717171;
+    margin: 0px;
+  }
+
+  .text-colored {
+    color: #499A18;
+  }
+
+  .welcome-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+    color: #636060;
+    width: 525px;
+    margin-top: 42px;
+    margin-bottom: 48px;
+  }
+
+  .button-learn {
+    font-family:"Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    padding: 10px 27px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+
+    color: #000000;
+
+    border: 2px solid #E06733;
+    border-radius: 10px;
+    background-color: rgba(224, 103, 51, 0);
+  }
+
+
+  /* main-about-us section*/
+  .section-about-us {
+    background-color: #FFFFFF;
+  }
+
+  .about {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    margin:0 109px;
+    padding-top: 93px;
+    padding-bottom: 93px;
+   }
+
+   .about-content {
+    width: 605px;
+   }
+
+   .houseplant {
+    width: 464px;
+    max-height: 479px;
+   }
+
+   .about-content h2 {
+    margin-right: 108px;
+    margin-bottom: 40px;
+    margin-top: 0;
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    
+    color: #499A18;
+    text-align:left
+   }
+
+   .about-text {
+    color: #636060;
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+   }
+
+   .oranged-text {
+    color: #E06733;
+   }
+
+   /* main-service section*/
+
+   .section-service {
+    background-color: #EDF2EC;
+   }
+
+   .services-navigation {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    margin: 0 324px 35px 109px;
+    padding-top: 40px;
+   }
+
+   .services-navigation h2 {
+    max-height: 94px;
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+
+    margin: 0 142px 0 0;
+    width: 306px;
+    
+    padding: 0px;
+   }
+
+  .services-buttons {
+    margin: 29px 0 15px 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width:559px;
+  }
+
+   .button-service {
+    text-decoration: none;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #E06733;
+    text-align:center;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #E06733;
+    border-radius: 5px;
+    background-color: #EDF2EC;
+    width: 161px;
+
+    padding: 11px 40px;
+    margin: 0 38px 0 0;
+   }
+
+   .button-service:last-child {
+    margin-right: 0;
+   }
+
+   .lawn-button {
+    padding: 11px 54px;
+   }
+
+   .layout-3-column {
+    margin: 0 109px 0 109px;
+    padding-bottom: 119px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+   }
+
+   .services {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+   }
+
+   .service-name {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #E06733;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 1px 0 ;
+   }
+
+   .service-description {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #717171;
+    text-align: center;
+    margin: 0 0 36px 0;
+   }
+
+   .service-content {
+    color: #E3E1D5;
+    border: 1px solid #E3E1D5;
+    border-radius: 0px 0px 20px 20px;
+   }
+
+   /* main-prices section*/
+
+   .section-prices {
+    background-color: #FFFFFF;
+   }
+
+   .prices {
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+
+    margin: 0 109px 0 109px;
+    padding-top: 41px;
+    padding-bottom: 116px;
+   }
+
+   .prices-content {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+   }
+
+   .prices-content h2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #000000;
+    text-align: left;
+
+    width: 135px;
+    margin: 0;
+   }
+
+   .prices-accourdion {
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+
+    width: 332px;
+    margin-top: 60px;
+   }
+
+   .prices-items {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 250px;
+    margin: 34px 41px;
+
+   }
+
+   .prices-button {
+    background: #EDF2EC;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 0;
+    
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000000;
+
+    margin-bottom: 32px;
+   }
+
+   .prices-button summary {
+    position: relative;
+    display: block;
+    padding: 15px 110px 15px 40px;
+   
+  }
+  
+  .prices-button  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .prices-button  summary::before {
+    content: url(./assets/img/accordion_btn.svg);
+    position: absolute;
+    right: 40px;
+    top: 17px;
+    
+    color: #000000;
+  }
+
+   .prices-button:last-child {
+    margin-bottom: 0;
+   }
+
+   .contact-form {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+   }
+
+   .contact-form-text {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: right;
+    color: #000000;
+
+    max-width: 452px;
+   }
+
+   .contact-form-text p {
+    margin: 0;
+
+   }
+
+   .button-contact-us {
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: #E06733;
+
+    border: 1px solid #E06733;
+    border-radius: 5px;
+
+    background: #FFFFFF;
+    padding: 12px 32px;
+    margin:38px 0;
+   }
+
+   .prices-image {
+    width: 152px;
+    align-self: flex-end;
+   }
+
+   /*contact section*/
+
+   .contact-section {
+    display: flex;
+    justify-content: space-between;
+    
+    background: #EDF2EC;
+
+   }
+
+   .contact-section h2 {
+    font-family: "Inika";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+
+    margin-top: 60px;
+    margin-bottom: 439px; 
+    margin-left: 113px;
+    margin-right: 64px;
+   }
+
+   .contact-image {
+    margin-top: 53px;
+    margin-left: 109px;
+   }
+
+   .contact-details {
+    background: #D6E7D2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+
+    margin-top:148px;
+    margin-right: 109px;
+    margin-bottom: 352px;
+    width: 450px;
+   }
+
+   .contact-details summary {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0.05em;
+    color: #717171;
+
+    position: relative;
+    display: block;
+    padding: 5px 226px 5px 20px;
+
+    width: 204px; 
+  }
+  
+  .contact-details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .contact-details  summary::before {
+    content: url(./assets/img/accordion_btn1.svg);
+    position: absolute;
+    right: -169px;
+    top: 10px;
+    bottom: 17.5px;
+  }
+  
+  /*footer*/ 
+
+  .footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:40px 109px;
+
+    background:#FFFFFF;
+  }
+  .start-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 182px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+
+    color: #000000;
+  }
+
+  .start-element p {
+    margin: 0 20px 0 0;
+  }
+
+  .copyright-image {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    transition: .3s;
+  }
+
+  .rsschool {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: #000000;
+
+    width: 211px;
+  }
+
+  .media-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    margin: 0;
+
+    list-style: none;
+    width: 188px;
+    height: 50px;
+  }
+
+  .media-item {
+    margin-right: 20px;
+    width:32px;
+    height: 32px;
+  }
+
+  .media-item:last-child {
+    margin-right: 0px;
+  }
+
+  .instagram-link {
+    background-image: url(./assets/img/instagram.svg);
+    width: 28px;
+    height: 27px;
+    display: inline-block;
+  }
+
+  .facebook-link {
+    background-image: url(./assets/img/facebook.svg);
+    width: 17px;
+    height: 27px;
+    display: inline-block;
+  }
+
+  .twitter-link {
+    background-image: url(./assets/img/twitter.svg);
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+  }
+
+  .pinterest-link {
+    background-image: url(./assets/img/pinterest.svg);
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+  }
+
+
+   
+
+
+
+
+   
+
+
+
+   
+
