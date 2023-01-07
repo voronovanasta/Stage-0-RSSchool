@@ -54,17 +54,20 @@
     margin: 42px 110px 42px 110px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
    }
+
    .logo {
     display:flex;
     align-items:flex-start;
-    margin-top: 10px;
+    
     
     border-color: #499A18;
     border: 1px;
     width: 79px;
     height: 21px;
+    margin-top: 10px;
+
    }
 
    .logo-text {
@@ -74,17 +77,20 @@
     font-size: 16px;
     line-height: 20px;
     color: #000000;
-    padding-top: 4px;
-   }
-
-   .logo p {
-    margin: 0px;
+    padding-top: 0px;
+    
+    margin: 4px 0 0 1px ;
    }
 
    .logo-image {
     background-image: url(./assets/img/logo.svg);
     width: 20px;
     height: 21px;
+    margin: 0;
+    
+    
+
+    
    }
 
    .nav-list {
@@ -158,6 +164,7 @@
     font-size: 45px;
     line-height: 50px;
     color: #717171;
+    margin: 0px;
   }
 
   .text-colored {
@@ -170,6 +177,9 @@
     font-size: 20px;
     line-height: 35px;
     color: #636060;
+    width: 525px;
+    margin-top: 42px;
+    margin-bottom: 48px;
   }
 
   .button-learn {
@@ -178,7 +188,7 @@
     font-size: 16px;
     text-align: center;
     line-height: 20px;
-    padding: 14px 27px;
+    padding: 10px 27px;
     text-transform: uppercase;
     cursor: pointer;
     outline: none;
@@ -189,6 +199,7 @@
     border-radius: 10px;
     background-color: rgba(224, 103, 51, 0);
   }
+
 
   /* main-about-us section*/
   .section-about-us {
@@ -260,25 +271,27 @@
    }
 
    .services-navigation h2 {
-    font-family: 'Inika';
+    max-height: 94px;
+    font-family: "Inika";
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
-    line-height: 53px;
+    line-height: 52px;
     color: #499A18;
 
-    margin: 0 134px 0 0;
+    margin: 0 142px 0 0;
     width: 306px;
     
-    padding: 0;
+    padding: 0px;
    }
 
   .services-buttons {
-    margin: 0;
+    margin: 29px 0 15px 0;
     padding: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width:559px;
   }
 
    .button-service {
@@ -295,8 +308,9 @@
     border: 1px solid #E06733;
     border-radius: 5px;
     background-color: #EDF2EC;
+    width: 161px;
 
-    padding: 12px 40px;
+    padding: 11px 40px;
     margin: 0 38px 0 0;
    }
 
@@ -305,7 +319,7 @@
    }
 
    .lawn-button {
-    padding: 12px 54px;
+    padding: 11px 54px;
    }
 
    .layout-3-column {
@@ -324,7 +338,7 @@
     justify-content: flex-end;
    }
 
-   .service-content h3 {
+   .service-name {
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
@@ -332,6 +346,9 @@
     line-height: 20px;
     color: #E06733;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 1px 0 ;
    }
 
    .service-description {
@@ -342,6 +359,7 @@
     line-height: 20px;
     color: #717171;
     text-align: center;
+    margin: 0 0 36px 0;
    }
 
    .service-content {
@@ -362,8 +380,8 @@
     align-items:baseline;
 
     margin: 0 109px 0 109px;
-    padding-top: 40px;
-    padding-bottom: 115px;
+    padding-top: 41px;
+    padding-bottom: 116px;
    }
 
    .prices-content {
@@ -423,7 +441,7 @@
    .prices-button summary {
     position: relative;
     display: block;
-    padding: 16px 110px 16px 40px;
+    padding: 15px 110px 15px 40px;
    
   }
   
@@ -509,6 +527,8 @@
 
     margin-top: 60px;
     margin-bottom: 439px; 
+    margin-left: 113px;
+    margin-right: 64px;
    }
 
    .contact-image {
@@ -581,7 +601,7 @@
   }
 
   .start-element p {
-    margin: 0px;
+    margin: 0 20px 0 0;
   }
 
   .copyright-image {
