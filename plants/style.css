@@ -99,7 +99,7 @@
    }
 
    .nav_item {
-    font-family: 'Inika';
+    font-family: "Inika";
     font-style: normal;
     font-weight: 400;
     line-height: 50px;
@@ -110,9 +110,9 @@
    .nav_link {
     color: #010201;
     text-decoration: none;
-    transition: color 0.2s;
-    transition: .3s;
+    transition: all 0.3s linear;
   }
+
    .nav_link:hover {
     color: #E06733;
     font-weight: 700;
@@ -120,7 +120,6 @@
 
    .nav_item {
     margin-right: 46px;
-    
    }
 
    .nav_item:last-child {
@@ -195,7 +194,6 @@
     border-radius: 10px;
     background-color: rgba(224, 103, 51, 0);
     transition: all 0.3s ease;
-    
   }
 
   .button-learn:hover {
@@ -323,8 +321,6 @@
   .button-service:hover {
     background: #E06733;
     color: #FFFFFF;
-    
-
   }
 
    .button-service:last-child {
