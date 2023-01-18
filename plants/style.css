@@ -34,23 +34,26 @@
     box-sizing: border-box;
    }
 
-   body {
+   .wrapper {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 109px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    
    }
+
+   
    
    header {
     max-width: 100%;
-    max-height: 134px;
+    max-height: 4%;
     background-color: #EDF2EC; 
    }
 
-   .wrapper {
-    margin: 42px 110px 42px 110px;
+   .wrapper-header {
+    padding-top: 42px;
+    padding-bottom: 42px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -59,12 +62,8 @@
    .logo {
     display:flex;
     align-items:flex-start;
-    
-    
     border-color: #499A18;
     border: 1px;
-    width: 79px;
-    height: 21px;
     margin-top: 10px;
 
    }
@@ -136,21 +135,20 @@
     display: flex;
     justify-content:space-between;
     align-items: center;
-
-    margin: 0 109px;
     padding-top: 62px;
     padding-bottom: 62px;
     
    }
 
    .welcome-content {
-    width: 549px;
-    height: 340px;
+    max-width: 45%;
+    
    }
 
    .leaves {
-    width: 448px;
-    max-height: 407px;
+    width: 100%;
+    max-width: 448px;
+    
    }
 
   h1 {
@@ -172,7 +170,7 @@
     font-size: 20px;
     line-height: 35px;
     color: #636060;
-    width: 525px;
+    max-width: 99%;
     margin-top: 42px;
     margin-bottom: 48px;
   }
@@ -208,22 +206,13 @@
   }
 
   .about {
-    display: flex;
-    justify-content:space-between;
     align-items: center;
-
-    margin:0 109px;
     padding-top: 93px;
     padding-bottom: 93px;
    }
 
    .about-content {
-    width: 605px;
-   }
-
-   .houseplant {
-    width: 464px;
-    max-height: 479px;
+    max-width: 50%;
    }
 
    .about-content h2 {
@@ -260,19 +249,29 @@
 
    .section-service {
     background-color: #EDF2EC;
+    
+   }
+
+   .section-service .wrapper {
+    flex-direction: column;
+     
+     
+     
+
    }
 
    .services-navigation {
     display:flex;
     justify-content: space-between;
     align-items: center;
-   
-    margin: 0 324px 35px 109px;
+    max-width: 82.5%;
+    margin: 0;
     padding-top: 40px;
    }
 
    .services-navigation h2 {
-    max-height: 94px;
+    
+  
     font-family: "Inika";
     font-style: normal;
     font-weight: 400;
@@ -281,7 +280,7 @@
     color: #499A18;
 
     margin: 0 142px 0 0;
-    width: 306px;
+    max-width: 30%;
     
     padding: 0px;
    }
@@ -292,7 +291,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width:559px;
+    
   }
 
    .button-service {
@@ -309,7 +308,6 @@
     border: 1px solid #E06733;
     border-radius: 5px;
     background-color: #EDF2EC;
-    width: 161px;
 
     padding: 11px 40px;
     margin: 0 38px 0 0;
@@ -332,8 +330,9 @@
    }
 
    .layout-3-column {
-    margin: 0 109px 0 109px;
+    margin: 0;
     padding-bottom: 119px;
+    padding-top: 25px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -384,13 +383,9 @@
    }
 
    .prices {
-    display: flex;
-    justify-content: space-between;
     align-items:baseline;
-
-    margin: 0 109px 0 109px;
-    padding-top: 41px;
-    padding-bottom: 116px;
+    padding-top: 40px;
+    padding-bottom: 115px;
    }
 
    .prices-content {
@@ -408,7 +403,6 @@
     color: #000000;
     text-align: left;
 
-    width: 135px;
     margin: 0;
    }
 
@@ -416,17 +410,16 @@
     border: 1px solid #E3E1D5;
     border-radius: 20px;
 
-    width: 332px;
     margin-top: 60px;
+    margin-bottom: 12px;
    }
 
    .prices-items {
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-
-    width: 250px;
-    margin: 34px 41px;
+    margin: 34px 0;
+    padding: 0 48px;
 
    }
 
@@ -481,9 +474,11 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+
+    max-width: 37%;
    }
 
-   .contact-form-text {
+   .contact-form-content {
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
@@ -492,10 +487,9 @@
     text-align: right;
     color: #000000;
 
-    max-width: 452px;
    }
 
-   .contact-form-text p {
+   .contact-form-content p {
     margin: 0;
 
    }
@@ -526,17 +520,20 @@
   }
 
    .prices-image {
-    width: 152px;
+    width: 100%;
+    max-width: 152px;
+    object-fit: cover;
     align-self: flex-end;
    }
 
    /*contact section*/
 
    .contact-section {
-    display: flex;
-    justify-content: space-between;
-    
     background: #EDF2EC;
+
+   }
+
+   .contact-section .wrapper {
 
    }
 
@@ -548,15 +545,12 @@
     line-height: 52px;
     color: #499A18;
 
-    margin-top: 60px;
-    margin-bottom: 439px; 
-    margin-left: 113px;
-    margin-right: 64px;
+    margin-top: 60px; 
+    margin-left: 50px;
    }
 
    .contact-image {
     margin-top: 53px;
-    margin-left: 109px;
    }
 
    .contact-details {
@@ -565,8 +559,6 @@
     border-radius: 0px;
 
     margin-top:148px;
-    margin-right: 109px;
-    margin-bottom: 352px;
     width: 450px;
 
     cursor: pointer;
@@ -609,8 +601,6 @@
   /*footer*/ 
 
   .footer-wrapper {
-    display: flex;
-    justify-content: space-between;
     align-items:center;
     padding:40px 109px;
 
@@ -620,7 +610,6 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    width: 182px;
 
     font-family: "Inter";
     font-style: normal;
@@ -635,10 +624,6 @@
     margin: 0 20px 0 0;
   }
 
-  .copyright-image {
-    width: 16px;
-    height: 16px;
-  }
 
   .footer-link {
     text-decoration: none;
@@ -657,26 +642,19 @@
     font-size: 20px;
     line-height: 50px;
     color: #000000;
-
-    width: 211px;
   }
 
   .media-list {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
     padding: 0px;
     margin: 0;
 
     list-style: none;
-    width: 188px;
-    height: 50px;
   }
 
   .media-item {
-    margin-right: 20px;
-    width:32px;
-    height: 32px;
+    margin-right: 30px;
+    
 
     transition: all 0.3s ease;
   }

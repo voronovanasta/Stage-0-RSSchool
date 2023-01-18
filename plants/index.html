@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="wrapper">
+        <div class="wrapper-header wrapper">
             <div class="logo">
                 <p class="logo-image"></p>
                 <p class="logo-text" >Plants</p>
@@ -39,7 +39,7 @@
     </header>
     <main>
         <section class="section-welcome" id="home">
-            <div class="welcome">
+            <div class="welcome wrapper">
                 <img class="leaves" alt="leaves" src="./assets/img/leafs.png">
                 <div class="welcome-content">
                     <h1>We grow <span class="text-colored">plants</span> and give you oxygen</h1>
@@ -49,7 +49,7 @@
             </div>
         </section>
         <section class="section-about-us" id="aboutus">
-            <div class="about">
+            <div class="about wrapper">
                 <div class="about-content">
                     <h2><span class="greened-text">We are</span><span class="oranged-text"> professional experienced </span><span class="greened-text">gardeners</span></h2>
                     <p class="about-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
@@ -58,61 +58,65 @@
             </div>
         </section>
         <section class="section-service" id="service">
-            <div class="services-navigation">
-                <h2>Service and our projects</h2>
-                <div class="services-buttons">
-                    <button type="submit" class="button-service">Gardens</button>
-                    <button type="submit" class="button-service lawn-button">Lawn</button>
-                    <button type="submit" class="button-service">Planting</button>
+            <div class="wrapper service-wrapper">
+                <div class="services-navigation">
+                    <h2>Service and our projects</h2>
+                    <div class="services-buttons">
+                        <button type="submit" class="button-service">Gardens</button>
+                        <button type="submit" class="button-service lawn-button">Lawn</button>
+                        <button type="submit" class="button-service">Planting</button>
+                    </div>
                 </div>
+                <div class="layout-3-column">
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Garden care</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first1.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Planting</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first2.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Lawn care</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first3.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Planting</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first4.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Garden care</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                    <article class="services">
+                        <img class="service-image" src="./assets/img/first5.png" alt="service">
+                        <div class="service-content">
+                            <h3 class="service-name">Planting</h3>
+                            <p class="service-description">Lorem Ipsum has been the industry</p>
+                        </div>
+                    </article>
+                </div>
+
             </div>
-            <div class="layout-3-column">
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Garden care</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first1.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Planting</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first2.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Lawn care</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first3.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Planting</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first4.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Garden care</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-                <article class="services">
-                    <img class="service-image" src="./assets/img/first5.png" alt="service">
-                    <div class="service-content">
-                        <h3 class="service-name">Planting</h3>
-                        <p class="service-description">Lorem Ipsum has been the industry</p>
-                    </div>
-                </article>
-            </div>
+            
         </section>
         <section class="section-prices" id="prices">
-            <div class="prices">
+            <div class="prices wrapper">
                 <div class="prices-content">
                     <h2>Prices</h2>
                     <div class="prices-accourdion">
@@ -130,7 +134,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <div class="contact-form-text">
+                    <div class="contact-form-content">
                         <p>Our best <span class="text-colored">gardeners</span> are ready to help you</p>
                         <button class="button-contact-us">Contact us</button>
                     </div>
@@ -139,15 +143,23 @@
             </div>
         </section>
         <section class="contact-section" id="contact">
-            <img class ="contact-image" src="./assets/img/contact_woman.png" alt="woman">
-            <h2>Contact us</h2>
-            <details class="contact-details">
-                <summary>City</summary>
-            </details>
+            <div class="wrapper">
+                <img class ="contact-image" src="./assets/img/contact_woman.png" alt="woman">
+                <h2>Contact us</h2>
+                <div class="city">
+                    <details class="contact-details">
+                        <summary>City</summary>
+                    </details>
+
+                </div>
+                
+
+            </div>
+            
         </section>
     </main>
     <footer class="footer">
-        <div class="footer-wrapper">
+        <div class="footer-wrapper wrapper">
             <div class="start-element">
                 <p><img class="copyright-image" src="./assets/img/copyright.png" alt="copyright"></p>
                 <p>2022</p>
