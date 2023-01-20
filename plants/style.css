@@ -34,6 +34,10 @@
     box-sizing: border-box;
    }
 
+   body {
+    margin: 0;
+   }
+
    .wrapper {
     width: 1440px;
     margin: 0 auto;
@@ -250,7 +254,7 @@
     color: #E06733;
    }
 
-   /* main-service section*/
+   /* main-service section
 
    .section-service {
     background-color: #EDF2EC;
@@ -348,6 +352,11 @@
     justify-content: flex-end;
    }
 
+   .service-image {
+    width: 100%;
+    vertical-align: top;
+  }
+
    .service-name {
     font-family: "Inter";
     font-style: normal;
@@ -378,7 +387,7 @@
     border-radius: 0px 0px 20px 20px;
    }
 
-   /* main-prices section*/
+   /* main-prices section
 
    .section-prices {
     background-color: #FFFFFF;
@@ -528,7 +537,7 @@
     align-self: flex-end;
    }
 
-   /*contact section*/
+   /*contact section
 
    .contact-section {
     background: #EDF2EC;
@@ -596,7 +605,7 @@
     bottom: 17.5px;
   }
   
-  /*footer*/
+  /*footer
 
   .footer-wrapper {
     align-items:center;
@@ -692,10 +701,13 @@
     width: 27px;
     height: 27px;
     display: inline-block;
-  }
+  }*/
+
+
 
 @media screen and (max-width: 768px) {
    body {
+    
     margin: 0;
    }
     .wrapper  {
@@ -709,6 +721,7 @@
        padding-top: 35px;
        padding-bottom: 35px;
      }
+     
 
      .welcome {
       flex-direction: row-reverse;
@@ -740,6 +753,7 @@
     .button-learn {
       margin-bottom: 70px;
     }
+    
 
     .about {
       flex-direction: column;
@@ -770,6 +784,7 @@
       margin-top: 70px;
       margin-bottom: 95px;
     }
+    /*
 
     .services-navigation {
       flex-direction: column;
@@ -899,9 +914,81 @@
     line-height: 24px;
     margin: 16px 0 27px;
    }
-  }
+  }*/
     
+@media screen and (max-width: 380px) {
+  .wrapper  {
+      
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0 25px;
+  }
 
+  
+  .wrapper-header {
+      padding-top: 36px;
+      padding-bottom: 36px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .logo {
+    margin-top: 0;
+  }
+
+  .leaves {
+    display: none;
+  }
+
+  .welcome-content {
+    max-width: 100%;
+  }
+
+  .welcome-text {
+    margin-bottom: 20px;
+    margin-top: 26px;
+  }
+
+  h1 {
+    font-size: 25px;
+    line-height: 35px;
+    margin-top: 24px;
+  }
+
+  .button-learn {
+    margin-bottom: 24px;
+    font-size: 10px;
+    line-height: 20px;
+    padding: 5px 16px;
+  }
+
+  .about-content {
+    margin: 30px 0 0;
+  }
+
+  .about-content h2 {
+    font-size: 25px;
+    line-height: 33px;
+    padding: 0 21px;
+    margin: 0 0 18px 0;
+  }
+
+  .about-text {
+    font-size: 15px;
+    line-height: 25px;
+    margin: 0;
+  }
+
+  .houseplant {
+    max-width: 150px;
+    max-height: 147px;
+    margin-top: 0px;
+    margin-bottom: 31px;
+  }
+
+}
 
   
    
