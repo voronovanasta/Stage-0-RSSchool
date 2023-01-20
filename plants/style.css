@@ -528,14 +528,10 @@
     align-self: flex-end;
    }
 
-   /*contact section
+   /*contact section*/
 
    .contact-section {
     background: #EDF2EC;
-
-   }
-
-   .contact-section .wrapper {
 
    }
 
@@ -600,7 +596,7 @@
     bottom: 17.5px;
   }
   
-  /*footer
+  /*footer*/
 
   .footer-wrapper {
     align-items:center;
@@ -696,7 +692,7 @@
     width: 27px;
     height: 27px;
     display: inline-block;
-  }*/
+  }
 
 @media screen and (max-width: 768px) {
    body {
@@ -856,6 +852,53 @@
       padding-left: 10px;
       
     }
+
+    .contact-section .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+
+    .contact-image {
+      margin-top: 250px;
+      margin-left: 16px;
+      width: 100%;
+      max-width: 200px;
+      order: 3;
+    }
+
+    .city {
+      order: 2;
+    }
+
+    .contact-section h2 {
+      order: 1;
+      margin: 40px 0 100px;
+    }
+
+    .contact-details {
+      margin-top: 0;
+    }
+
+    .footer-wrapper {
+      flex-wrap: wrap;
+      max-width: 100%;
+      padding: 0 50px;
+
+      margin: 35px 0 32px;
+
+      flex-direction: column;
+    }
+
+   .start-element {
+    line-height: 24px;
+   }
+
+   .rsschool {
+    line-height: 24px;
+    margin: 16px 0 27px;
+   }
   }
     
 
