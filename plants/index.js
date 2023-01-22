@@ -1,3 +1,4 @@
+console.log('Оценка:70\n1. Соответствие 768-24.\n2.Соответствие 380 - 24.\n3. Нет полосы прокрутки -10.\n4.Адаптивное меню -22.');
 
 (function() {
     const burgerItem = document.querySelector('.burger');  
