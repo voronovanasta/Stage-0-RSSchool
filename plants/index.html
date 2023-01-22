@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./assets/img/favicon.ico">
-    <script src="index.js"></script>
+    
     <title>plants1</title>
 </head>
 <body>
@@ -16,25 +16,39 @@
                 <p class="logo-image"></p>
                 <p class="logo-text" >Plants</p>
             </div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav_item">
-                        <a href="#home" class="nav_link">Home</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#aboutus" class="nav_link">About us</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#service" class="nav_link">Service</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#prices" class="nav_link">Price</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#contact" class="nav_link">Contacts</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="popup">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav_item">
+                            <a href="#home" class="nav_link">Home</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#aboutus" class="nav_link">About us</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#service" class="nav_link">Service</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#prices" class="nav_link">Price</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="#contact" class="nav_link">Contacts</a>
+                        </li>
+                    </ul>
+                    <div class="nav_close">
+                        <span class="nav_close_line"></span>
+                        <span class="nav_close_line"></span>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="header_burger burger">
+                <span class="burger_line burger_line_first"></span>
+                <span class="burger_line burger_line_second"></span>
+                <span class="burger_line burger_line_third"></span>
+                <span class="burger_line burger_line_four"></span>
+            </div>  
+
         </div>
     </header>
     <main>
@@ -203,6 +217,8 @@
                 </ul>
             </div>       
         </div>
-    </footer>         
+    </footer> 
+
+<script src="index.js"></script>
 </body>
 </html>
