@@ -254,7 +254,7 @@
     color: #E06733;
    }
 
-   /* main-service section
+   /* main-service section*/
 
    .section-service {
     background-color: #EDF2EC;
@@ -387,7 +387,7 @@
     border-radius: 0px 0px 20px 20px;
    }
 
-   /* main-prices section
+   /* main-prices section*/
 
    .section-prices {
     background-color: #FFFFFF;
@@ -537,7 +537,7 @@
     align-self: flex-end;
    }
 
-   /*contact section
+   /*contact section*/
 
    .contact-section {
     background: #EDF2EC;
@@ -605,7 +605,7 @@
     bottom: 17.5px;
   }
   
-  /*footer
+  /*footer*/
 
   .footer-wrapper {
     align-items:center;
@@ -701,19 +701,22 @@
     width: 27px;
     height: 27px;
     display: inline-block;
-  }*/
+  }
 
 
 
-@media screen and (max-width: 768px) {
-   body {
-    
-    margin: 0;
-   }
+@media screen and (max-width: 1439px) {
+      body {
+        margin: 0;
+
+      }
+        
+   
+
     .wrapper  {
       
        flex-wrap: wrap;
-       max-width: 100%;
+       max-width: 768px;
        padding: 0 50px;
      }
  
@@ -784,7 +787,7 @@
       margin-top: 70px;
       margin-bottom: 95px;
     }
-    /*
+    
 
     .services-navigation {
       flex-direction: column;
@@ -816,11 +819,11 @@
     
 
     .services {
-      margin-top: 40px;
+      margin-top: 36.5px;
     }
 
     .service-description {
-      width: 72%;
+      width: 73%;
       
       margin-bottom: 20px;
     }
@@ -851,6 +854,7 @@
       margin: 30px 0 34px;
 
     }
+    
 
     .prices {
       align-items: unset;
@@ -914,13 +918,14 @@
     line-height: 24px;
     margin: 16px 0 27px;
    }
-  }*/
+}
+
     
 @media screen and (max-width: 380px) {
   .wrapper  {
       
     flex-wrap: wrap;
-    max-width: 100%;
+    max-width: 380px;
     padding: 0 25px;
   }
 
@@ -966,6 +971,8 @@
 
   .about-content {
     margin: 30px 0 0;
+
+   
   }
 
   .about-content h2 {
@@ -988,7 +995,145 @@
     margin-bottom: 31px;
   }
 
-}
+  .services-navigation {
+    padding-top: 30px;
+  }
+
+  .services-navigation h2 {
+    font-size: 25px;
+    line-height: 33px;
+    margin: 0;
+    max-width: 100%;
+
+  }
+
+  .services-buttons {
+    margin-top: 38px;
+    flex-wrap: wrap;
+    justify-content: unset;
+    gap: 9px;
+    align-items: flex-start;
+  }
+
+  .button-service {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 7px 32px;
+    margin: 0;
+  }
+
+  .lawn-button {
+    padding: 7px 40px;
+  }
+
+  .layout-3-column {
+    padding: 5px 25px 27px;
+  }
+
+  .services {
+    margin-top: 30.5px;
+  }
+
+  .prices {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .prices-content {
+    margin-top: 25px;
+    
+  }
+
+  .prices-content h2 {
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0 0 34px;
+  }
+
+  .prices-items {
+    margin: 29px 0;
+    padding: 0 22px;
+
+  }
+
+  .prices-accourdion {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .prices-button {
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  .prices-button summary {
+    padding: 15px 85px 15px 30px;
+  }
+
+  .contact-form {
+    padding: 0px;
+    margin-bottom: 40px;
+    display: flex;
+    width: 100%;
+    max-width: 228px;
+  }
+
+  .contact-form-content {
+    font-size: 20px;
+    text-align: center;
+
+  }
+
+
+  .button-contact-us {
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    margin: 14px 0 0;
+    padding: 8px 22px
+
+  }
+
+  .prices-image {
+    display: none;
+  }
+
+  .contact-section h2 {
+    font-size: 25px;
+    line-height: 33px;
+    margin: 25px 0 80px;
+  }
+
+  .contact-image{
+    max-width: 100px;
+    margin-top: 132px;
+    margin-left: 0;
+  }
+
+  .contact-details {
+    width: 100%;
+  }
+
+  .contact-details summary {
+    padding-right: 278px;
+  }
+
+  .contact-details  summary::before {
+    right: 23px;
+  }
+
+  .footer-wrapper {
+    margin-top: 24px;
+  }
+
+  .rsschool {
+    margin-bottom: 14px;
+  }
+
+  
+  }
+
 
   
    
