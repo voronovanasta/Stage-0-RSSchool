@@ -353,6 +353,13 @@
     color: #FFFFFF;
   }
 
+  .button-active {
+    background: #E06733;
+    color: #FFFFFF;
+  }
+
+  
+
    .button-service:last-child {
     margin-right: 0;
    }
@@ -411,6 +418,14 @@
     color: #E3E1D5;
     border: 1px solid #E3E1D5;
     border-radius: 0px 0px 20px 20px;
+   }
+
+   .article {
+    transition-duration: 0.3ms;
+   }
+
+   .blur {
+    filter: blur(2px);
    }
 
    /* main-prices section*/
