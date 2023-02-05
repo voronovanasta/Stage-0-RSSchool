@@ -217,7 +217,7 @@ console.log('Оценка:70\n1. Соответствие 768-24.\n2.Соотв�
 })();
 
 (function(){
-    const accourdion = document.querySelector('.accourdion');
+    const accourdion = document.querySelector('.price-accourdion');
     console.log(accourdion);
     let  detailsItems = Array.from(accourdion.querySelectorAll('details'));
     console.log(detailsItems);
@@ -234,21 +234,65 @@ console.log('Оценка:70\n1. Соответствие 768-24.\n2.Соотв�
 
     })
     
-
-
-
-
-
-
-
-
-
 })()
 
+let select = function () {
+let header = document.querySelector('.select-header');
+let selectItem = document.querySelectorAll('.select-item');
+let itemsArray = Array.from(document.querySelectorAll('.select-item')) 
+let cardsArray = Array.from(document.querySelectorAll('.card')) 
 
 
 
-    
+ header.addEventListener('click', ()=>{
+        header.parentElement.classList.toggle('active');
+        if(header.parentElement.classList.contains('active')){
+            cardsArray.forEach(item => {
+                item.classList.remove('active');
+                console.log('here!')
+            })
+        }
+
+    })
+
+ selectItem.forEach(item =>{
+        item.addEventListener('click', ()=>{
+            let text = item.innerText;
+           
+            header.querySelector('.city-name').innerText = text;
+            header.parentElement.classList.remove('active');
+            header.classList.add('selected-city')
+            document.querySelector('.city-name').classList.add('selected-city')
+        })
+        
+     })
+
+ for (let i = 0; i< itemsArray.length; i++ ){
+    itemsArray[i].addEventListener('click', ()=>{
+        for(let j = 0; j < cardsArray.length; j++){
+            if(i==j){
+                cardsArray[j].classList.add('active')
+                
+                
+            }
+            else{
+                cardsArray[j].classList.remove('active')
+                
+            }
+
+        }
+            
+
+    })
+
+ }
+
+ 
+}
+
+select();  
+
+
 
 
 
