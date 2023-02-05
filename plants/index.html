@@ -76,13 +76,13 @@
                 <div class="services-navigation">
                     <h2>Service and our projects</h2>
                     <div class="services-buttons">
-                        <button type="submit" class="button-service">Gardens</button>
+                        <button type="submit" class="button-service garden-button">Gardens</button>
                         <button type="submit" class="button-service lawn-button">Lawn</button>
-                        <button type="submit" class="button-service">Planting</button>
+                        <button type="submit" class="button-service planting-button">Planting</button>
                     </div>
                 </div>
                 <div class="layout-3-column">
-                    <article class="services">
+                    <article class="services article garden">
                         <picture>
                             <source srcset="./assets/img/img768/first768.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first.png" alt="service">
@@ -92,7 +92,7 @@
                             <p class="service-description">Lorem Ipsum has been the industry</p>
                         </div>
                     </article>
-                    <article class="services">
+                    <article class="services article planting">
                         <picture>
                             <source srcset="./assets/img/img768/second.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first1.png" alt="service">
@@ -102,7 +102,7 @@
                             <p class="service-description">Lorem Ipsum has been the industry</p>
                         </div>
                     </article>
-                    <article class="services">
+                    <article class="services article lawn">
                         <picture>
                             <source srcset="./assets/img/img768/third.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first2.png" alt="service">
@@ -112,7 +112,7 @@
                             <p class="service-description">Lorem Ipsum has been the industry</p>
                         </div>
                     </article>
-                    <article class="services">
+                    <article class="services article planting">
                         <picture>
                             <source srcset="./assets/img/img768/four.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first3.png" alt="service">
@@ -122,7 +122,7 @@
                             <p class="service-description">Lorem Ipsum has been the industry</p>
                         </div>
                     </article>
-                    <article class="services">
+                    <article class="services article garden">
                         <picture>
                             <source srcset="./assets/img/img768/five.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first4.png" alt="service">
@@ -132,7 +132,7 @@
                             <p class="service-description">Lorem Ipsum has been the industry</p>
                         </div>
                     </article>
-                    <article class="services">
+                    <article class="services article planting">
                         <picture>
                             <source srcset="./assets/img/img768/six.png" media="(max-width: 768px)">
                             <img class="service-image" src="./assets/img/first5.png" alt="service">
@@ -152,15 +152,33 @@
                 <div class="prices-content">
                     <h2>Prices</h2>
                     <div class="prices-accourdion">
-                        <div class="prices-items">
-                            <details class="prices-button">
+                        <div class="prices-items price-accourdion ">
+                            <details class="prices-button details">
                                 <summary>Basics</summary>
+                                <div class="details-content">
+                                    <p class="line"></p>
+                                    <p class="price-text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                                    <div class="price-number"><strong>$15 </strong>/ per hour</div>
+                                    <button class="order-button" onclick="document.location='#contact'">Order</button>
+                                </div>
                             </details>
-                            <details class="prices-button">
+                            <details class="prices-button details">
                                 <summary>Standard</summary>
+                                <div class="details-content">
+                                    <p class="line"></p>
+                                    <p class="price-text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                                    <div class="price-number"><strong>$25 </strong>/ per hour</div>
+                                    <button class="order-button" onclick="document.location='#contact'">Order</button>
+                                </div>
                             </details>
-                            <details class="prices-button">
+                            <details class="prices-button details">
                                 <summary>Pro care</summary>
+                                <div class="details-content">
+                                    <p class="line"></p>
+                                    <p class="price-text">Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                                    <div class="price-number"><strong>$35 </strong>/ per hour</div>
+                                    <button class="order-button" onclick="document.location='#contact'">Order</button>
+                                </div>
                             </details>
                         </div>
                     </div>
@@ -178,15 +196,84 @@
             <div class="wrapper">
                 <img class ="contact-image" src="./assets/img/contact_woman.png" alt="woman">
                 <h2>Contact us</h2>
-                <div class="city">
-                    <details class="contact-details">
-                        <summary>City</summary>
-                    </details>
+                <div class="contact-body" >
+                    <div class="city contact-accourdion">
+                        <div class="contact-details select-header">
+                            <span class="city-name">City</span>
+                            <div class="select-pointer"></div>
+                        </div>
+                        <div class="select-body">
+                            <div class="select-item">Canandaigua, NY</div>
+                            <div class="select-item">New York City</div>
+                            <div class="select-item">Yonkers, NY</div>
+                            <div class="select-item">Sherrill, NY</div>
+                        </div>
+                    </div>
+                    <div class="card Canandaigua">
+                        <div class="card-content">
+                            <div class="leftColumn">
+                                <p>City:</p>
+                                <p>Phone:</p>
+                                <p>Office address:</p>
+                            </div>
+                            <div class="rightColumn">
+                                <p>Canandaigua, NY</p>
+                                <p>+1 585 393 0001</p>
+                                <p>151 Charlotte Street</p>
+                            </div>
+                        </div>
+                            <button class="call-button" onclick="window.open('tel: +15853930001')">Call us</button> 
+                    </div>
+                    <div class="card NY">
+                        <div class="card-content">
+                            <div class="leftColumn">
+                                <p>City:</p>
+                                <p>Phone:</p>
+                                <p>Office address:</p>
+                            </div>
+                            <div class="rightColumn">
+                                <p>New York City</p>
+                                <p>+1 212 456 0002</p>
+                                <p>9 East 91st Street</p>
+                            </div>
+                        </div>
+                            <button class="call-button" onclick="window.open('tel: +12124560002')">Call us</button> 
+                    </div>
+                    <div class="card Yonkers">
+                        <div class="card-content">
+                            <div class="leftColumn">
+                                <p>City:</p>
+                                <p>Phone:</p>
+                                <p>Office address:</p>
+                            </div>
+                            <div class="rightColumn">
+                                <p>Yonkers, NY</p>
+                                <p>+1 914 678 0003</p>
+                                <p>511 Warburton Ave</p>
+                            </div>
+                        </div>
+                            <button class="call-button"  onclick="window.open('tel: +19146780003')">Call us</button> 
+                    </div>
+                    <div class="card Sherrill">
+                        <div class="card-content">
+                            <div class="leftColumn">
+                                <p>City:</p>
+                                <p>Phone:</p>
+                                <p>Office address:</p>
+                            </div>
+                            <div class="rightColumn">
+                                <p>Sherrill, NY</p>
+                                <p>+1 315 908 0004</p>
+                                <p>14 WEST Noyes BLVD</p>
+                            </div>
+                        </div>
+                            <button class="call-button" onclick="window.open('tel: +13159080004')">Call us</button> 
+                    </div>
+                    
+                </div>
 
                 </div>
-                
-
-            </div>
+               
             
         </section>
     </main>
