@@ -837,6 +837,8 @@
 
   .call-button {
     align-self: center;
+    background-color: rgba(224, 103, 51, 0);
+    
 
     border: 1px solid #E06733;
     border-radius: 5px;
@@ -1441,9 +1443,33 @@
     margin-top: 132px;
     margin-left: 0;
   }
+.contact-section .wrapper {
+  padding: 25px 42px 0px;;
+}
 
-  .contact-details {
+.contact-section h2 {
+  margin-top: 0;
+  margin-bottom: 80px;
+  padding: 0;
+} 
+  .contact-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
+    margin: 0
+  }
+
+  .city.contact-accourdion {
+    margin: 0;
+  }
+
+  .contact-accourdion {
+    max-width: 100%;
+  }
+  
+  .contact-details.select-header  {
+    
   }
 
   
