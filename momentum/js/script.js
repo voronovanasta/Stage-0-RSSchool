@@ -14,10 +14,20 @@ const city = document.querySelector('.city');
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuoteBtn = document.querySelector('.change-quote');
+const playBtn = document.querySelector('.play');
+const playPrevBtn = document.querySelector('.play-prev');
+const playNextBtn = document.querySelector('.play-next');
+const playListContainer = document.querySelector('.play-list');
+
 let randomNum;
+let isPlay = false;
+let playNum = 0;
+
+import playList from './playList.js';
+
 
 function showTime() {
-    const date = new Date();
+  const date = new Date();
     const currentTime = date.toLocaleTimeString();
     time.textContent = currentTime;
     setTimeout(showTime, 1000);
@@ -33,23 +43,24 @@ function showTime() {
   }
   
   function getTimeOfDay(){
-
     const date = new Date();
+
+   
     const hours = date.getHours();
    
 
     const dayTimeArr=["Morning", "Afternoon", "Evening", "Night"]
     let dayTimeVar = hours/6;
 
-    if(dayTimeVar<=1){
+    if(dayTimeVar<1){
         return dayTimeArr[3]
 
     }
-    else if (dayTimeVar<=2){
+    else if (dayTimeVar<2){
         return dayTimeArr[0]
 
     }
-    else if (dayTimeVar<=3){
+    else if (dayTimeVar<3){
         return dayTimeArr[1]
 
     }
@@ -68,30 +79,43 @@ function showTime() {
   }
 
   function setLocalStorage() {
+    
     localStorage.setItem('name', name.value);
+    localStorage.setItem('city', city.value);
   }
-  window.addEventListener('beforeunload', setLocalStorage)
+  window.addEventListener('beforeunload',()=>{
+    setLocalStorage()
+
+  } )
 
   function getLocalStorage() {
+    
     if(localStorage.getItem('name')) {
       name.value = localStorage.getItem('name');
+      
+    }
+    if(localStorage.getItem('city')) {
+      city.value = localStorage.getItem('city');
+      
     }
   }
-  window.addEventListener('load', getLocalStorage)
+  window.addEventListener('load', ()=>{
+    getLocalStorage()
+  })
 
  function getRandomNum(min, max){
   min = Math.ceil(min);
   max = Math.floor(max);
   randomNum =  Math.floor(Math.random() * (max - min + 1)) + min; 
  }
-
+ const img = new Image();
  function  setBg(){
   let timeOfDay=getTimeOfDay().toLowerCase();
   
   let bgNum = randomNum.toString().padStart(2, '0')
 
-  const img = new Image();
-  img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg` 
+  
+  img.src = `https://raw.githubusercontent.com/voronovanasta/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
   img.onload = () => {      
     body.style.backgroundImage = `url('${img.src}')`
   }; 
@@ -101,8 +125,6 @@ function showTime() {
 
 
  function getSlideNext(){
-  getRandomNum(1, 20)
-
   
   if(randomNum<20){
     randomNum++;
@@ -118,7 +140,7 @@ function showTime() {
  slideNext.addEventListener('click', getSlideNext)
     
  function getSlidePrev(){
-  getRandomNum(1, 20)
+  
   
   if(randomNum>1){
     randomNum--;
@@ -142,12 +164,14 @@ function showTime() {
   weatherIcon.className = 'weather-icon owf';
 
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${data.main.temp}°C`;
+  temperature.textContent = `${Math.floor(data.main.temp)}°C`;
   weatherDescription.textContent = data.weather[0].description;
-  wind.textContent=`${data.wind.speed}km/h`;
+  wind.textContent=`${Math.floor(data.wind.speed)}m/s`;
   humidity.textContent=`${data.main.humidity}%`;
 }
 getWeather()
+
+
 
 city.addEventListener('change', getWeather)
     
@@ -167,3 +191,117 @@ async function getQuotes() {
 getQuotes();
 
 changeQuoteBtn.addEventListener('click',getQuotes)
+
+//audioplayer
+for(let i = 0; i < playList.length; i++) {
+  const li = document.createElement('li');
+  li.classList.add('play-item', `${i}`)
+  li.textContent = playList[i].title;
+  playListContainer.append(li)
+}
+
+let songs = Array.from(document.querySelectorAll('.play-item'));
+console.log(songs)
+
+const audio= new Audio;
+function playAudio(){
+  
+  audio.currentTime = 0;
+  audio.src = playList[playNum].src;
+  if(!isPlay){
+    console.log(playNum)
+    console.log('if start'+ isPlay)
+
+    for(let i=0; i<songs.length; i++){
+      console.log('for for songs')
+      if(songs[i].classList.contains(playNum)){
+        songs[i].classList.add('selectedAudio')
+
+      }
+
+    }
+    
+    audio.play()
+    console.log(audio.play())
+    playBtn.classList.add('pause')
+    isPlay=true
+    console.log('if end'+ isPlay)
+
+  }
+  else{
+    console.log('else start' + isPlay)
+    for(let i=0; i<songs.length; i++){
+      console.log('for for songs')
+      if(songs[i].classList.contains(playNum)){
+        songs[i].classList.remove('selectedAudio')
+      }
+
+    }
+    audio.pause();
+    console.log(audio.pause())
+    playBtn.classList.remove('pause')
+    isPlay=false;
+    console.log('else end' + isPlay)
+  }
+
+  }
+
+  playBtn.addEventListener('click',playAudio)
+  audio.addEventListener('ended', playNext)
+
+function playPrev (){
+  console.log('prev start' + playNum)
+  isPlay=false;
+  for(let i=0; i<songs.length; i++){
+    if(songs[i].classList.contains(playNum)){
+      songs[i].classList.remove('selectedAudio')
+    }
+  }
+
+  if(playNum===0){
+    playNum = playList.length - 1;
+    playAudio()
+  }
+  else{
+    playNum--;
+    playAudio()
+
+  }
+  
+console.log('prev end' + playNum)
+ 
+
+}
+
+playPrevBtn.addEventListener('click',playPrev )
+
+function playNext (){
+  console.log('next start' + playNum)
+  isPlay=false;
+  for(let i=0; i<songs.length; i++){
+    if(songs[i].classList.contains(playNum)){
+      songs[i].classList.remove('selectedAudio')
+    }
+  }
+
+  playNum++;
+  if(playNum >=playList.length){
+    playNum = 0;
+    playAudio()
+
+  }
+  else{
+    
+    playAudio()
+
+  }
+  console.log('next end' + playNum)
+  
+  
+  }
+
+  playNextBtn.addEventListener('click',playNext )
+
+
+  
+  

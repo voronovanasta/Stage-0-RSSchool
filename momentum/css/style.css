@@ -118,6 +118,11 @@ body {
   background-image: url("../assets/svg/play-next.svg");
 }
 
+.selectedAudio {
+  color:greenyellow
+
+}
+
 .weather {
   display: flex;
   flex-direction: column;
