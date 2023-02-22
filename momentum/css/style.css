@@ -37,6 +37,7 @@ body {
   justify-content: space-between;
   width: 120px;
   margin-bottom: 28px;
+  margin-left: 17px;
 }
 
 .play-list {
@@ -119,9 +120,102 @@ body {
 }
 
 .selectedAudio {
-  color:greenyellow
+  color:rgb(255, 158, 47)
 
 }
+
+.title {
+  margin-bottom: 10px;
+  color: rgb(255, 109, 47);
+  text-align: center;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  
+}
+
+.timeline {
+  background: white;
+  opacity: 50%;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100%;
+  height: 15px;
+  position: relative;
+  cursor: pointer;
+  
+  
+}
+.progress {
+  background: coral;
+  width: 0%;
+  height: 100%;
+  transition: 0.25s;
+}
+
+.player-time {
+  display: flex;
+  align-self: center;
+}
+.time .current {
+  padding: 2px;
+}
+
+.time .divider {
+  padding: 2px;
+}
+
+.time .length {
+  padding: 2px;
+}
+
+.volume-container {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.volume-button {
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+/*.volume {
+  transform: scale(0.2);
+}*/
+
+.volume-slider {
+  position: absolute;
+  left: -3px; top: 15px;
+  z-index: -1;
+  width: 0;
+  height: 15px;
+  background: white;
+  box-shadow: 0 0 20px #000a;
+  transition: .25s;
+}
+
+.volume-percentage {
+  background: coral;
+  height: 100%;
+  width: 75%;
+}
+
+.volume-slider :hover {
+  left: -123px;
+  width: 120px;
+}
+
+.icono-volumeMedium{
+  background-image: url();
+
+}
+
+
 
 .weather {
   display: flex;

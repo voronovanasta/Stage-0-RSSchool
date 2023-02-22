@@ -18,7 +18,7 @@ const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev');
 const playNextBtn = document.querySelector('.play-next');
 const playListContainer = document.querySelector('.play-list');
-
+const track = document.getElementById('track')
 let randomNum;
 let isPlay = false;
 let playNum = 0;
@@ -201,19 +201,23 @@ for(let i = 0; i < playList.length; i++) {
 }
 
 let songs = Array.from(document.querySelectorAll('.play-item'));
-console.log(songs)
+
 
 const audio= new Audio;
 function playAudio(){
   
   audio.currentTime = 0;
   audio.src = playList[playNum].src;
+  track.textContent = `${playNum+1}`+'.   ' +  playList[playNum].title
+  document.querySelector(".player-time .length").textContent =
+  playList[playNum].duration;
+
+
   if(!isPlay){
-    console.log(playNum)
-    console.log('if start'+ isPlay)
+    
 
     for(let i=0; i<songs.length; i++){
-      console.log('for for songs')
+      
       if(songs[i].classList.contains(playNum)){
         songs[i].classList.add('selectedAudio')
 
@@ -222,26 +226,26 @@ function playAudio(){
     }
     
     audio.play()
-    console.log(audio.play())
+    
     playBtn.classList.add('pause')
     isPlay=true
-    console.log('if end'+ isPlay)
+    
 
   }
   else{
-    console.log('else start' + isPlay)
+    
     for(let i=0; i<songs.length; i++){
-      console.log('for for songs')
+      
       if(songs[i].classList.contains(playNum)){
         songs[i].classList.remove('selectedAudio')
       }
 
     }
     audio.pause();
-    console.log(audio.pause())
+    
     playBtn.classList.remove('pause')
     isPlay=false;
-    console.log('else end' + isPlay)
+    
   }
 
   }
@@ -250,7 +254,7 @@ function playAudio(){
   audio.addEventListener('ended', playNext)
 
 function playPrev (){
-  console.log('prev start' + playNum)
+  
   isPlay=false;
   for(let i=0; i<songs.length; i++){
     if(songs[i].classList.contains(playNum)){
@@ -268,7 +272,7 @@ function playPrev (){
 
   }
   
-console.log('prev end' + playNum)
+
  
 
 }
@@ -276,7 +280,7 @@ console.log('prev end' + playNum)
 playPrevBtn.addEventListener('click',playPrev )
 
 function playNext (){
-  console.log('next start' + playNum)
+  
   isPlay=false;
   for(let i=0; i<songs.length; i++){
     if(songs[i].classList.contains(playNum)){
@@ -295,13 +299,35 @@ function playNext (){
     playAudio()
 
   }
-  console.log('next end' + playNum)
+  
   
   
   }
 
   playNextBtn.addEventListener('click',playNext )
 
+  //click on timeline to skip around
+const timeline = document.querySelector(".timeline");
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
 
-  
+setInterval(() => {
+  const progressBar = document.querySelector(".progress");
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  document.querySelector(".player-time .current").textContent = formatTime(
+    audio.currentTime
+  );
+}, 500);
+
+function formatTime(seconds) {
+  let min = Math.floor((seconds / 60));
+  let sec = Math.floor(seconds - (min * 60));
+  if (sec < 10){ 
+      sec  = `0${sec}`;
+  };
+  return `${min}:${sec}`;
+};
   
