@@ -52,8 +52,8 @@ li.play-item{
 
 .play-item {
   position: relative;
-  padding: 5px;
-  padding-left: 20px;
+  padding: 4px;
+  padding-left: 14px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
@@ -118,9 +118,9 @@ li.play-item{
 }
 
 .miniaudio-button {
-  width: 20px;
-  height: 20px;
-  background-size: 20px 20px;
+  width: 18px;
+  height:18px;
+  background-size: 18px 18px;
   cursor: pointer;
   opacity: 75%;
   background-image: url("../assets/svg/playmini.svg")
