@@ -18,6 +18,7 @@ const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev');
 const playNextBtn = document.querySelector('.play-next');
 const playListContainer = document.querySelector('.play-list');
+
 const track = document.getElementById('track')
 let randomNum;
 let isPlay = false;
@@ -195,62 +196,64 @@ changeQuoteBtn.addEventListener('click',getQuotes)
 //audioplayer
 for(let i = 0; i < playList.length; i++) {
   const li = document.createElement('li');
+  const div = document.createElement('div');
   li.classList.add('play-item', `${i}`)
   li.textContent = playList[i].title;
   playListContainer.append(li)
+  div.classList.add('miniaudio-button')
+  li.append(div)
 }
 
 let songs = Array.from(document.querySelectorAll('.play-item'));
 
 
 const audio= new Audio;
+
 function playAudio(){
-  
   audio.currentTime = 0;
   audio.src = playList[playNum].src;
   track.textContent = `${playNum+1}`+'.   ' +  playList[playNum].title
   document.querySelector(".player-time .length").textContent =
   playList[playNum].duration;
+  audio.volume = .75;
 
+  document.querySelector(".volume-button").addEventListener("click", () => {
+    const volumeEl = document.querySelector(".volume-container .volume");
+    audio.muted = !audio.muted;
+    if (audio.muted) {
+      volumeEl.classList.remove("volume-ico");
+      volumeEl.classList.add("mute-ico");
+    } else {
+      volumeEl.classList.add("volume-ico");
+      volumeEl.classList.remove("mute-ico");
+    }
+  });
 
   if(!isPlay){
-    
-
     for(let i=0; i<songs.length; i++){
-      
       if(songs[i].classList.contains(playNum)){
         songs[i].classList.add('selectedAudio')
-
       }
-
     }
-    
     audio.play()
-    
     playBtn.classList.add('pause')
+    miniaudioBtns[playNum].classList.add('miniaudio-pause')
     isPlay=true
-    
-
   }
   else{
-    
     for(let i=0; i<songs.length; i++){
-      
       if(songs[i].classList.contains(playNum)){
         songs[i].classList.remove('selectedAudio')
       }
-
     }
     audio.pause();
-    
+    miniaudioBtns[playNum].classList.remove('miniaudio-pause')
     playBtn.classList.remove('pause')
     isPlay=false;
-    
-  }
-
-  }
+  }}
 
   playBtn.addEventListener('click',playAudio)
+  
   audio.addEventListener('ended', playNext)
 
 function playPrev (){
@@ -261,6 +264,7 @@ function playPrev (){
       songs[i].classList.remove('selectedAudio')
     }
   }
+  miniaudioBtns[playNum].classList.remove('miniaudio-pause')
 
   if(playNum===0){
     playNum = playList.length - 1;
@@ -271,10 +275,6 @@ function playPrev (){
     playAudio()
 
   }
-  
-
- 
-
 }
 
 playPrevBtn.addEventListener('click',playPrev )
@@ -287,24 +287,20 @@ function playNext (){
       songs[i].classList.remove('selectedAudio')
     }
   }
+  miniaudioBtns[playNum].classList.remove('miniaudio-pause')
 
   playNum++;
   if(playNum >=playList.length){
     playNum = 0;
     playAudio()
-
   }
   else{
     
     playAudio()
-
   }
-  
-  
-  
   }
 
-  playNextBtn.addEventListener('click',playNext )
+playNextBtn.addEventListener('click',playNext )
 
   //click on timeline to skip around
 const timeline = document.querySelector(".timeline");
@@ -322,6 +318,16 @@ setInterval(() => {
   );
 }, 500);
 
+//click volume slider to change volume
+const volumeSlider = document.querySelector(".volume-slider");
+volumeSlider.addEventListener('click', e => {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  document.querySelector(".volume-percentage").style.width = newVolume * 100 + '%';
+}, false)
+
+
 function formatTime(seconds) {
   let min = Math.floor((seconds / 60));
   let sec = Math.floor(seconds - (min * 60));
@@ -330,4 +336,23 @@ function formatTime(seconds) {
   };
   return `${min}:${sec}`;
 };
+
+//miniplay buttons
+const miniaudioBtns = Array.from(document.querySelectorAll('.miniaudio-button'));
+console.log(miniaudioBtns)
+miniaudioBtns.forEach(el => {
+  el.addEventListener('click',()=>{
+    if(!isPlay){
+      playNum = miniaudioBtns.indexOf(el);
+      console.log(playNum)
+      playAudio();
+      el.classList.add('miniaudio-pause')
+      isPlay=true;
+    }
+    else{
+      playAudio()
+      el.classList.remove('miniaudio-pause')
+    }
+  })
+});
   

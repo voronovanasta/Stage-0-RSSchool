@@ -36,12 +36,18 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin-bottom: 6px;
+  margin-top: 6px;
   margin-left: 17px;
 }
 
 .play-list {
   text-align: left;
+}
+
+li.play-item{
+  display: flex;
+  justify-content: space-between;
 }
 
 .play-item {
@@ -111,6 +117,19 @@ body {
   background-image: url("../assets/svg/pause.svg");
 }
 
+.miniaudio-button {
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
+  cursor: pointer;
+  opacity: 75%;
+  background-image: url("../assets/svg/playmini.svg")
+
+}
+.miniaudio-pause {
+  background-image: url("../assets/svg/pausemini.svg")
+}
+
 .play-prev {
   background-image: url("../assets/svg/play-prev.svg");
 }
@@ -139,11 +158,11 @@ body {
 
 .timeline {
   background: white;
-  opacity: 50%;
+  opacity: 70%;
   margin-bottom: 10px;
   margin-right: 10px;
   width: 100%;
-  height: 15px;
+  height: 10px;
   position: relative;
   cursor: pointer;
   
@@ -153,7 +172,7 @@ body {
   background: coral;
   width: 0%;
   height: 100%;
-  transition: 0.25s;
+  transition: .25s;
 }
 
 .player-time {
@@ -174,27 +193,26 @@ body {
 
 .volume-container {
   cursor: pointer;
-  position: relative;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
 }
 
 .volume-button {
-  height: 26px;
+  
   display: flex;
   align-items: center;
+  
 }
 
-/*.volume {
-  transform: scale(0.2);
-}*/
-
 .volume-slider {
-  position: absolute;
-  left: -3px; top: 15px;
-  z-index: -1;
-  width: 0;
-  height: 15px;
-  background: white;
+ 
+  margin-left: 10px;
+  opacity: 70%;
+  width: 100%;
+  height: 6px;
+  background: #fff;
   box-shadow: 0 0 20px #000a;
   transition: .25s;
 }
@@ -205,15 +223,22 @@ body {
   width: 75%;
 }
 
-.volume-slider :hover {
-  left: -123px;
-  width: 120px;
+.volume-ico {
+  background: url(../assets/svg/sound.svg);
+    background-size: cover;
+    width: 26px;
+    height: 26px;
 }
 
-.icono-volumeMedium{
-  background-image: url();
-
+.mute-ico {
+  background: url(../assets/svg/mute.svg);
+    background-size: cover;
+    width: 26px;
+    height: 26px;
 }
+
+
+
 
 
 
