@@ -21,7 +21,7 @@ body {
   transition: background-image 1s ease-in-out;
 }
 
-.header {
+.header .popup{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -218,7 +218,7 @@ li.play-item{
 }
 
 .volume-percentage {
-  background: coral;
+  background: #ff7f50;
   height: 100%;
   width: 75%;
 }
@@ -288,6 +288,136 @@ li.play-item{
   opacity: .6;
 }
 
+.popup-transparent:before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 9;
+}
+.header_burger {
+  position: fixed;
+  display: block;
+  width: 20px;
+  height: 20px;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  
+  padding: 0px;
+  transform: translate(0%);
+  transition: 0.5s all linear
+ }
+ .burger_active {
+  display: none;
+ }
+
+ .burger_line {
+  display:block;
+  width: 100%;
+  position: absolute;
+  border: 1px solid #ff7f50;
+  left: 0;
+ }
+
+ .burger_line_first {
+  top: 0;
+ }
+
+ .burger_line_second {
+  bottom: 0;
+ }
+
+ .burger_line_third {
+  top: 30%;
+ }
+
+ .burger_line_four {
+  top: 60%;
+ }
+
+ .settings {
+  position: fixed;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  background-color: #ff7f50;
+  opacity: 0.9;
+  height: 100px;
+  top: 8px;
+  right: 8px;
+  z-index: 99;
+  padding: 20px;
+  border-radius: 2%;
+  
+
+ }
+
+ .settings-active {
+  
+  display: flex;
+ }
+
+ .select-css { 
+  font-family: 'Arial-MT';
+  display: block; 
+ margin: 0px 0px;
+  font-size: 16px; 
+  font-family: sans-serif; 
+  font-weight: 700; 
+  line-height: 1.3; 
+  padding: .6em 1.4em .5em .8em;
+  width: 55%; 
+  max-width: 55%; 
+  box-sizing: border-box;  
+  border: none;
+  
+  border-radius: .5em;
+ }
+
+ .select-css option { 
+  font-family: 'Arial-MT';
+  font-size: 14px;
+  font-family: sans-serif; 
+  padding: .6em .8em .5em 1.4em; } 
+
+ .nav_close {
+  
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  z-index: 11;
+}
+
+.nav_close_line {
+  display: block;
+  height: 2px;
+  background-color: #ffffff;
+  width: 100%;
+  top: 50%;
+  position: absolute;
+}
+
+.nav_close_line:first-child {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.nav_close_line:last-child {
+  transform: translateY(-50%) rotate(-45deg);;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 30px;
+
+}
 .main {
   position: relative;
   display: flex;

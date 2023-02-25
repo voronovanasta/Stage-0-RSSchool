@@ -10,48 +10,67 @@
 </head>
 <body>
   <header class="header">
-    <div class="player">
-      <div class="title">
-        <span id="track"></span>
-      </div>
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="progress"></div>
+    <div class="popup">
+      <div class="player">
+        <div class="title">
+          <span id="track"></span>
         </div>
-        <div class="player-time">
-          <div class="current">00:00</div>
-          <div class="divider">/</div>
-          <div class="length">0:00</div>
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="progress"></div>
+          </div>
+          <div class="player-time">
+            <div class="current">00:00</div>
+            <div class="divider">/</div>
+            <div class="length">0:00</div>
+          </div>
         </div>
-      </div>
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
-      </div>
-      <div class="volume-container">
-        <div class="volume-button">
-          <div class="volume volume-ico"></div>
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
         </div>
-        
-        <div class="volume-slider">
-          <div class="volume-percentage"></div>
+        <div class="volume-container">
+          <div class="volume-button">
+            <div class="volume volume-ico"></div>
+          </div>
+          <div class="volume-slider">
+            <div class="volume-percentage"></div>
+          </div>
         </div>
+        <ul class="play-list"></ul>
       </div>
-      <ul class="play-list"></ul>
+    
+      <div class="weather">
+        <input type="text" class="city" value="Minsk" />
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
     </div>
-  </div>
-    <div class="weather">
-      <input type="text" class="city" value="Minsk"/>
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
-      </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
-    </div>
+        <div class="header_burger burger">
+          <span class="burger_line burger_line_first"></span>
+          <span class="burger_line burger_line_second"></span>
+          <span class="burger_line burger_line_third"></span>
+          <span class="burger_line burger_line_four"></span>
+       </div>  
+       <div class="settings">
+        <label class="language">Language:</label>
+          <select class="select-css" id="language"> 
+            <option value="en">EN</option>
+            <option value="ru">RU</option> 
+            <option value="be">BE</option>
+          </select>
+          <div class="nav_close">
+            <span class="nav_close_line"></span>
+            <span class="nav_close_line"></span>
+         </div>
+       </div>
   </header>
   <main class="main">
     <div class="slider-icons">
