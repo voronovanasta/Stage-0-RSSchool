@@ -207,6 +207,7 @@ function showTime() {
 
  const img = new Image();
  let timeOfDayImage=getTimeOfDay().toLowerCase();
+ let url;
 
  function  setBg(){
   let bgNum = randomNum.toString().padStart(2, '0')
@@ -219,7 +220,6 @@ function showTime() {
  setBg()
 
  function getSlideNext(){
-  
   if(randomNum<20){
     randomNum++;
     setBg();
@@ -535,9 +535,24 @@ async function getLinkToImageUnsplash() {
     console.log(data)
     img.src = data.photos.photo[0].url_l;
       body.style.backgroundImage = `url('${img.src}')`
-    
     }
-  
    
+    let source = 'github';
+    const selectSource = document.getElementById('source');
+    console.log(selectSource)
+    
+    selectSource.addEventListener('change', function(){  
+      source = this.value;
+    
+      if(source=='github'){
+        setBg()
+      }
+      if(source=='unsplash'){
+        getLinkToImageUnsplash()
+      }
+      if(source=='flickr'){
+        getLinkToImageFlickr()
+      }
   
+    });
 
