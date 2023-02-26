@@ -568,6 +568,29 @@ li.play-item{
   opacity: 0%;
 }
 
+.link {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 50px;
+
+    color: #974b03;
+}
+
+.link p{
+  margin-right: 10px;
+}
+
+.link a {
+  margin-right: 10px;
+}
+
+.copyright-image {
+  background-color: #974b03;
+}
 @media (max-width: 768px) {
   .time {
     min-height: 80px;
