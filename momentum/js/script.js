@@ -568,7 +568,7 @@ miniaudioBtns.forEach(el => {
     burgerItem.classList.add('burger_active');
     settings.classList.add('settings-active');
     popup.classList.add('popup-transparent');
-    document.querySelector('.weather').classList.add('disabled')
+    
       
   })
 
@@ -576,7 +576,7 @@ miniaudioBtns.forEach(el => {
     settings.classList.remove('settings-active');
     burgerItem.classList.remove('burger_active');
     popup.classList.remove('popup-transparent');
-    document.querySelector('.weather').classList.remove('disabled')
+    
 
   })
   
@@ -585,7 +585,7 @@ miniaudioBtns.forEach(el => {
     settings.classList.remove('settings-active');
     popup.classList.remove('popup-transparent');
     burgerItem.classList.remove('burger_active');
-    document.querySelector('.weather').classList.remove('disabled')
+    
   })
  }
 )();
