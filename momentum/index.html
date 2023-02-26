@@ -72,6 +72,35 @@
             <option value="unsplash">Unsplash</option> 
             <option value="flickr">Flickr</option>
           </select>
+          <input class="tag" type="text" autocomplete="on"  placeholder="tag"  size="5"/>
+          <div class="visibility">
+            <div class="radio-button">
+              <p class="button-title weather-text">Weather</p>
+              <input class="weatherCheckbox" type="checkbox" value="weather" checked />
+            </div>
+            <div class="radio-button">
+              <p class="button-title time-text">Time</p>
+              <input class="timeCheckbox" type="checkbox" value="time" checked   />
+            </div>
+            <div class="radio-button">
+              <p class="button-title date-text">Date</p>
+              <input class="dateCheckbox" type="checkbox" value="date" checked />
+            </div>
+            <div class="radio-button">
+              <p class="button-title quote-text">Quote</p>
+              <input class="quoteCheckbox" type="checkbox" value="quote" checked />
+            </div>
+            <div class="radio-button">
+              <p class="button-title player-text">Player</p>
+              <input class="playerCheckbox" type="checkbox" value="player" checked />
+            </div>
+            <div class="radio-button">
+              <p class="button-title greeting-text">Greeting</p>
+              <input class="greetingCheckbox"  type="checkbox" value="greeting" checked />
+            </div>
+
+          </div>
+          
           <div class="nav_close">
             <span class="nav_close_line"></span>
             <span class="nav_close_line"></span>
@@ -92,7 +121,7 @@
   </main>
   <footer class="footer">
     <button class="change-quote"></button>
-    <div>
+    <div class="quoteBlock">
       <div class="quote"></div>
       <div class="author"></div>
     </div>

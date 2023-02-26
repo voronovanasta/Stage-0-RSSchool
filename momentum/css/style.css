@@ -9,6 +9,8 @@
   padding: 0;
 }
 
+
+
 body {
   min-width: 480px;
   min-height: 100vh;
@@ -76,6 +78,10 @@ li.play-item{
   color: #C5B358;
 }
 
+.player {
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
+}
 .player-icon,
 .slider-icon,
 .change-quote {
@@ -251,7 +257,12 @@ li.play-item{
   width: 180px;
   min-height: 180px;  
   text-align: left;
+  z-index: 1;
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
 }
+
+
 
 .weather-error {
   margin-top: -10px;
@@ -305,7 +316,7 @@ li.play-item{
   height: 20px;
   top: 8px;
   right: 8px;
-  z-index: 10;
+  z-index: 100;
   
   padding: 0px;
   transform: translate(0%);
@@ -341,24 +352,25 @@ li.play-item{
 
  .settings {
   position: fixed;
-  display: none;
+  opacity: 0%;
+  display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
   width: 360px;
   background-color: #ff7f50;
-  opacity: 0.9;
   
+  transition: opacity 0.7s ease-in-out;
   top: 8px;
   right: 8px;
-  z-index: 99;
+  z-index: 0;
   padding: 20px;
   border-radius: 2%;
  }
 
  .settings-active {
-  
-  display: flex;
+  opacity: 80%;
+  z-index: 99;
  }
 
  .select-css { 
@@ -392,8 +404,8 @@ li.play-item{
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 1px;
-  right: 1px;
+  top: 3px;
+  right: 6px;
   z-index: 11;
 }
 
@@ -414,12 +426,32 @@ li.play-item{
   transform: translateY(-50%) rotate(-45deg);;
 }
 
-label {
+.tag {
+  padding: 5px;
+  border-radius: 0.5em;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+.visibility {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.radio-button {
+  display: flex;
   font-size: 20px;
   font-weight: 700;
-  margin-right: 30px;
+  margin-top: 30px;
+  justify-content: space-between;
 
 }
+.button-title {
+  margin-right: 20px;
+}
+
 .main {
   position: relative;
   display: flex;
@@ -455,12 +487,16 @@ label {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;  
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
 }
 
 .greeting-container {
@@ -471,6 +507,8 @@ label {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
 }
 
 .greeting {
@@ -512,12 +550,22 @@ label {
   background-image: url("../assets/svg/reload.svg");  
 }
 
+.quoteBlock {
+  opacity: 100%;
+  transition: opacity 0.7s ease-in-out;
+}
+
+
 .quote {
   min-height: 32px;
 }
 
 .author {
   min-height: 20px;
+}
+
+.disabled {
+  opacity: 0%;
 }
 
 @media (max-width: 768px) {

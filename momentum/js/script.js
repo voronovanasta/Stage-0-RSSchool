@@ -1,10 +1,12 @@
 const time = document.querySelector('.time');
 const day = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
+const greetingBlock = document.querySelector('.greeting-container');
 const name = document.querySelector('.name');
 const body = document.querySelector('body');
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
+const weather = document.querySelector('.weather')
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -12,8 +14,10 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('.city');
 const quote = document.querySelector('.quote');
+const quoteBlock = document.querySelector('.quoteBlock');
 const author = document.querySelector('.author');
 const changeQuoteBtn = document.querySelector('.change-quote');
+const player = document.querySelector('.player')
 const playBtn = document.querySelector('.play');
 const playPrevBtn = document.querySelector('.play-prev');
 const playNextBtn = document.querySelector('.play-next');
@@ -24,8 +28,14 @@ let randomNum;
 let isPlay = false;
 let playNum = 0;
 let number;
-
+let urlWeather
 import playList from './playList.js';
+
+const state ={
+  'language':'en',
+  'photoSource': 'github',
+  'blocks': ['weather', 'time', 'date', 'quote', 'player',  'greeting']
+}
 
 //translate application
 
@@ -70,13 +80,34 @@ const greetingTranslation={
 
 const settingsTranslation ={
   'en': {
-    "language": "Language:"
+    "language": "Language:",
+    "photoSource": "Photo-source:",
+    "weather": "Weather:",
+    "time": "Time:",
+    "date": "Date:",
+    "quote": "Quote:",
+    "player": "Player:",
+    "greeting": "Greeting:"
   },
   'ru': {
-    "language": "Язык:"
+    "language": "Язык:",
+    "photoSource": "Загрузка фона:",
+    "weather": "Погода:",
+    "time": "Время:",
+    "date": "Дата:",
+    "quote": "Цитата:",
+    "player": "Плеер:",
+    "greeting": "Приветствие:"
   },
   'be': {
-    "language": "Мова:"
+    "language": "Мова:",
+    "photoSource": "Загрузка фона:",
+    "weather": "Надвор'е:",
+    "time": "Час:",
+    "date": "Дата:",
+    "quote": "Цытата:",
+    "player": "Плэер:",
+    "greeting": "Прывітанне:"
   }
 }
 
@@ -92,27 +123,36 @@ const dateTranslation ={
   }
 }
 
-let langValue = 'en';
+
 const select = document.getElementById('language');
 
 select.addEventListener('change', function(){  
-  langValue = this.value;
+  state.language = this.value;
 
-  if(langValue!='be'){
-    city.value=weatherInput[langValue]
+  if( state.language!='be'){
+    city.value=weatherInput[ state.language]
     getWeather()
   }
   getWeather()
-  if(langValue=='be'){
-    city.value=weatherInput[langValue]
+  if( state.language=='be'){
+    city.value=weatherInput[ state.language]
   }
   
   showGreeting()
   getPrevQuotes()
   showDate()
 
-  name.placeholder=greetingTranslation[langValue].placeholder
-  document.querySelector('.language').textContent=settingsTranslation[langValue].language
+  name.placeholder=greetingTranslation[state.language].placeholder
+  console.log(name)
+ 
+  document.querySelector('.language').textContent=settingsTranslation[state.language].language
+  document.querySelector('.photoSource').textContent=settingsTranslation[state.language].photoSource
+  document.querySelector('.weather-text').textContent=settingsTranslation[state.language].weather
+  document.querySelector('.time-text').textContent=settingsTranslation[state.language].time
+  document.querySelector('.date-text').textContent=settingsTranslation[state.language].date
+  document.querySelector('.player-text').textContent=settingsTranslation[state.language].player
+  document.querySelector('.greeting-text').textContent=settingsTranslation[state.language].greeting
+  document.querySelector('.quote-text').textContent=settingsTranslation[state.language].quote
 });
 
 //time and date
@@ -127,13 +167,13 @@ function showTime() {
     let currentDate;
     const date = new Date();
     const options = {month: 'long', weekday: 'long', day: 'numeric'};
-    if(langValue=='be'){
+    if(state.language=='be'){
       let formatter = new Intl.DateTimeFormat('be-BY', options).format(date)
       currentDate = formatter
       console.log(formatter)
     }
     else{
-      currentDate = date.toLocaleDateString(dateTranslation[langValue].locales, options);
+      currentDate = date.toLocaleDateString(dateTranslation[state.language].locales, options);
 
     }
     day.textContent = currentDate;
@@ -163,16 +203,21 @@ function showTime() {
 
   //greeting
   function showGreeting(){
-    const timeOfDay =greetingTranslation[langValue][getTimeOfDay()];
+    const timeOfDay =greetingTranslation[state.language][getTimeOfDay()];
     const greetingText = `${timeOfDay},`;
     greeting.textContent = greetingText;
   }
 //local storage
 
   function setLocalStorage() {
-    
+    weatherCheckbox
     localStorage.setItem('name', name.value);
     localStorage.setItem('city', city.value);
+    localStorage.setItem('language', select.value);
+    localStorage.setItem('urlWeather', urlWeather);
+    localStorage.setItem('selectSource', selectSource.value);
+    localStorage.setItem('tagValue', tagValue.value);
+    /*localStorage.setItem('timeCheckboxValue', timeCheckbox.checked);*/
   }
   window.addEventListener('beforeunload',()=>{
     setLocalStorage()
@@ -185,19 +230,57 @@ function showTime() {
       name.value = localStorage.getItem('name');
       
     }
+    if(localStorage.getItem('selectSource')) {
+      selectSource.value = localStorage.getItem('selectSource');
+      
+    }
+    /*if(localStorage.getItem('timeCheckboxValue')) {
+      timeCheckbox.checked = localStorage.getItem('timeCheckboxValue');
+      checkStateCheckboxBtns(timeCheckbox)
+      if(timeCheckbox.checked){
+        timeCheckbox.removeAttribute('checked')
+      }
+    }*/
+
+    if(localStorage.getItem('tagValue')) {
+      tagValue.value = localStorage.getItem('tagValue');
+      
+    }
+    
+    if(localStorage.getItem('language')) {
+      select.value = localStorage.getItem('language');
+      state.language = select.value;
+     if( state.language!='be'){
+      city.value=weatherInput[ state.language]
+      getWeather()
+     }
+    getWeather()
+    if( state.language=='be'){
+      city.value=weatherInput.ru
+    }
+    showGreeting()
+    getPrevQuotes()
+    showDate()
+    name.placeholder=greetingTranslation[state.language].placeholder
+    document.querySelector('.language').textContent=settingsTranslation[ state.language].language
+    }
+
     if(localStorage.getItem('city')) {
       city.value = localStorage.getItem('city');
       
+    }
+
+  if(localStorage.getItem('urlWeather')) {
+    
+    urlWeather = localStorage.getItem('urlWeather');
+     
     }
   }
   window.addEventListener('load', ()=>{
     getLocalStorage()
   })
-//window load
-  window.addEventListener('load', ()=>{
-    city.value='Minsk'
-    console.log(city.value)
-  })
+
+
 // set background images
  function getRandomNum(min, max){
   min = Math.ceil(min);
@@ -245,11 +328,11 @@ function showTime() {
 
 // weather
  async function getWeather() { 
-  console.log(langValue)
+  console.log( state.language)
 
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${langValue}&appid=29f235d059f1d8edd581b7f8c9e090b5&units=metric`;
+  urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=29f235d059f1d8edd581b7f8c9e090b5&units=metric`;
   
-  const res = await fetch(url);
+  const res = await fetch(urlWeather);
   const data = await res.json(); 
  
   weatherIcon.className = 'weather-icon owf';
@@ -257,12 +340,12 @@ function showTime() {
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.floor(data.main.temp)}°C`;
   weatherDescription.textContent = data.weather[0].description;
-  wind.textContent=`${Math.floor(data.wind.speed)}${windSpeed[langValue]}`;
+  wind.textContent=`${Math.floor(data.wind.speed)}${windSpeed[state.language]}`;
   humidity.textContent=`${data.main.humidity}%`;
 }
 getWeather()
 city.addEventListener('change', getWeather)
-
+console.log( state.language)
 //quotes
 async function getQuotes() {  
   const quotes= "./js/data.json"
@@ -271,17 +354,17 @@ async function getQuotes() {
   
   getRandomNum(0,4)
   number = randomNum
-  if(langValue=='en'){
+  if( state.language=='en'){
     quote.textContent=data[number].text
     author.textContent=data[number].author
   }
 
-  if(langValue=='ru'){
+  if( state.language=='ru'){
     quote.textContent=data[number].текст
     author.textContent=data[number].автор
   }
 
-  if(langValue=='be'){
+  if( state.language=='be'){
     quote.textContent=data[number].тэкст
     author.textContent=data[number].аўтар
   }
@@ -296,15 +379,15 @@ async function getPrevQuotes() {
   const res = await fetch(quotes);
   const data = await res.json(); 
   number = randomNum
-  if(langValue=='en'){
+  if( state.language=='en'){
     quote.textContent=data[number].text
     author.textContent=data[number].author
   }
-  if(langValue=='ru'){
+  if( state.language=='ru'){
     quote.textContent=data[number].текст
     author.textContent=data[number].автор
   }
-  if(langValue=='be'){
+  if( state.language=='be'){
     quote.textContent=data[number].тэкст
     author.textContent=data[number].аўтар
   }
@@ -485,7 +568,7 @@ miniaudioBtns.forEach(el => {
     burgerItem.classList.add('burger_active');
     settings.classList.add('settings-active');
     popup.classList.add('popup-transparent');
-    
+    document.querySelector('.weather').classList.add('disabled')
       
   })
 
@@ -493,6 +576,7 @@ miniaudioBtns.forEach(el => {
     settings.classList.remove('settings-active');
     burgerItem.classList.remove('burger_active');
     popup.classList.remove('popup-transparent');
+    document.querySelector('.weather').classList.remove('disabled')
 
   })
   
@@ -500,7 +584,8 @@ miniaudioBtns.forEach(el => {
   popup.addEventListener('click', ()=>{
     settings.classList.remove('settings-active');
     popup.classList.remove('popup-transparent');
-    burgerItem.classList.remove('burger_active')
+    burgerItem.classList.remove('burger_active');
+    document.querySelector('.weather').classList.remove('disabled')
   })
  }
 )();
@@ -511,12 +596,12 @@ let tag=timeOfDayImage;
 //API Unsplash
 
 async function getLinkToImageUnsplash() {
-  console.log(tag)
+  
   const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tag}&client_id=ghqNoHfwrOf_Qr4C-2cs6O5PQ8IRmCgyDlWV3m9ml8Y`;
   
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data)
+  
   img.src = data.urls.regular;
     body.style.backgroundImage = `url('${img.src}')`
   
@@ -527,32 +612,80 @@ async function getLinkToImageUnsplash() {
   //Flickr API
 
   async function getLinkToImageFlickr() {
-    console.log('flickr')
+    
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=f1fd5e197e1115c5a2b1eee30612433c&tags=${tag}&extras=url_l&format=json&nojsoncallback=1`;
     
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data)
+   
     img.src = data.photos.photo[0].url_l;
       body.style.backgroundImage = `url('${img.src}')`
     }
    
-    let source = 'github';
+    
     const selectSource = document.getElementById('source');
-    console.log(selectSource)
+    const tagValue = document.querySelector('.tag')
     
+    
+    tagValue.addEventListener('click', function(){
+      if(tagValue.value!=""){
+        tag=tagValue.value
+      }
+    })
+
     selectSource.addEventListener('change', function(){  
-      source = this.value;
+      state.photoSource = this.value;
+      if(tagValue.value!=""){
+        tag=tagValue.value
+      }
     
-      if(source=='github'){
+      if(state.photoSource=='github'){
         setBg()
       }
-      if(source=='unsplash'){
+      if(state.photoSource=='unsplash'){
         getLinkToImageUnsplash()
       }
-      if(source=='flickr'){
+      if(state.photoSource=='flickr'){
         getLinkToImageFlickr()
       }
+      console.log(state.photoSource)
   
     });
+    
 
+    const weatherCheckbox = document.querySelector('.weatherCheckbox')
+    const timeCheckbox = document.querySelector('.timeCheckbox')
+    const dateCheckbox = document.querySelector('.dateCheckbox')
+    const quoteCheckbox = document.querySelector('.quoteCheckbox')
+    const playerCheckbox = document.querySelector('.playerCheckbox')
+    const greetingCheckbox = document.querySelector('.greetingCheckbox')
+    let checkboxValue
+   let blocksArr=[weather, time, day, quoteBlock, player, greetingBlock]
+   let checkboxArr = [weatherCheckbox, timeCheckbox, dateCheckbox, quoteCheckbox, playerCheckbox, greetingCheckbox]
+
+   function checkStateCheckboxBtns(checkboxBtn){
+    
+
+    if(!checkboxBtn.checked){
+      blocksArr[checkboxArr.indexOf(checkboxBtn)].classList.add('disabled')
+    }
+    else{
+      blocksArr[checkboxArr.indexOf(checkboxBtn)].classList.remove('disabled')
+    }
+
+    state.blocks.forEach(block=>{
+      checkboxArr.forEach(el=>{
+        block=el
+      })
+    })
+  }
+
+  checkboxArr.forEach(el=>{
+    el.addEventListener('change',function(){
+      checkStateCheckboxBtns(el)
+
+    } )
+  })
+
+  
+  
