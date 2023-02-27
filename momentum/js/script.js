@@ -659,25 +659,22 @@ async function getLinkToImageUnsplash() {
     const quoteCheckbox = document.querySelector('.quoteCheckbox')
     const playerCheckbox = document.querySelector('.playerCheckbox')
     const greetingCheckbox = document.querySelector('.greetingCheckbox')
-    let checkboxValue
+    
    let blocksArr=[weather, time, day, quoteBlock, player, greetingBlock]
    let checkboxArr = [weatherCheckbox, timeCheckbox, dateCheckbox, quoteCheckbox, playerCheckbox, greetingCheckbox]
+   console.log(checkboxArr)
 
    function checkStateCheckboxBtns(checkboxBtn){
     
 
     if(!checkboxBtn.checked){
       blocksArr[checkboxArr.indexOf(checkboxBtn)].classList.add('disabled')
+      
     }
     else{
       blocksArr[checkboxArr.indexOf(checkboxBtn)].classList.remove('disabled')
+     
     }
-
-    state.blocks.forEach(block=>{
-      checkboxArr.forEach(el=>{
-        block=el
-      })
-    })
   }
 
   checkboxArr.forEach(el=>{
@@ -689,3 +686,28 @@ async function getLinkToImageUnsplash() {
 
   
   
+   window.addEventListener('beforeunload',()=>{
+    for(var i = 0; i < checkboxArr.length; i++){
+      localStorage[checkboxArr[i].id] = document.getElementById(checkboxArr[i].id).checked ? 1 : 0}
+
+    }
+    )
+
+    function load_checkbox()
+    {
+          for(var i = 0; i < checkboxArr.length; i++)
+        {
+            var checkbox = checkboxArr[i]
+            checkbox.checked = parseInt(localStorage[checkbox.id], 10)
+            checkStateCheckboxBtns(checkbox)
+        }
+    }
+    window.addEventListener('load', ()=>{
+      load_checkbox()
+    })
+ 
+ /* function save_checkbox(name)
+{
+    localStorage[name] = document.getElementById(name).checked ? 1 : 0
+}
+*/
