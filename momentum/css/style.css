@@ -590,6 +590,7 @@ li.play-item{
 
 .copyright-image {
   background-color: #974b03;
+  border-radius: 100%;
 }
 @media (max-width: 768px) {
   .time {
