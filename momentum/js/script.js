@@ -217,7 +217,7 @@ function showTime() {
     localStorage.setItem('urlWeather', urlWeather);
     localStorage.setItem('selectSource', selectSource.value);
     localStorage.setItem('tagValue', tagValue.value);
-    /*localStorage.setItem('timeCheckboxValue', timeCheckbox.checked);*/
+
   }
   window.addEventListener('beforeunload',()=>{
     setLocalStorage()
@@ -234,13 +234,7 @@ function showTime() {
       selectSource.value = localStorage.getItem('selectSource');
       
     }
-    /*if(localStorage.getItem('timeCheckboxValue')) {
-      timeCheckbox.checked = localStorage.getItem('timeCheckboxValue');
-      checkStateCheckboxBtns(timeCheckbox)
-      if(timeCheckbox.checked){
-        timeCheckbox.removeAttribute('checked')
-      }
-    }*/
+   
 
     if(localStorage.getItem('tagValue')) {
       tagValue.value = localStorage.getItem('tagValue');
@@ -263,6 +257,13 @@ function showTime() {
     showDate()
     name.placeholder=greetingTranslation[state.language].placeholder
     document.querySelector('.language').textContent=settingsTranslation[ state.language].language
+    document.querySelector('.photoSource').textContent=settingsTranslation[state.language].photoSource
+   document.querySelector('.weather-text').textContent=settingsTranslation[state.language].weather
+   document.querySelector('.time-text').textContent=settingsTranslation[state.language].time
+   document.querySelector('.date-text').textContent=settingsTranslation[state.language].date
+   document.querySelector('.player-text').textContent=settingsTranslation[state.language].player
+   document.querySelector('.greeting-text').textContent=settingsTranslation[state.language].greeting
+   document.querySelector('.quote-text').textContent=settingsTranslation[state.language].quote
     }
 
     if(localStorage.getItem('city')) {
@@ -706,8 +707,4 @@ async function getLinkToImageUnsplash() {
       load_checkbox()
     })
  
- /* function save_checkbox(name)
-{
-    localStorage[name] = document.getElementById(name).checked ? 1 : 0
-}
-*/
+ 
