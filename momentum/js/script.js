@@ -125,19 +125,28 @@ const dateTranslation ={
 
 
 const select = document.getElementById('language');
+console.log('first enter')
 
 select.addEventListener('change', function(){  
+  console.log(city.value)
   state.language = this.value;
+  getWeather()
 
-  if( state.language!='be'){
+  if(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск'){
+    console.log('Вошел в иф если город минск')
+    city.value=weatherInput[ state.language]
+    getWeather()
+  /*if( state.language!='be'){
     city.value=weatherInput[ state.language]
     getWeather()
   }
   getWeather()
   if( state.language=='be'){
     city.value=weatherInput[ state.language]
-  }
-  
+  }}*/
+}
+
+
   showGreeting()
   getPrevQuotes()
   showDate()
@@ -225,6 +234,7 @@ function showTime() {
   })
 
   function getLocalStorage() {
+    console.log('second enter')
     
     if(localStorage.getItem('name')) {
       name.value = localStorage.getItem('name');
@@ -235,23 +245,44 @@ function showTime() {
       
     }
    
+   
 
     if(localStorage.getItem('tagValue')) {
       tagValue.value = localStorage.getItem('tagValue');
       
     }
     
+    if(localStorage.getItem('city')) {
+      city.value = localStorage.getItem('city');
+      console.log(city.value)
+      
+    }
+
+  if(localStorage.getItem('urlWeather')) {
+    
+    urlWeather = localStorage.getItem('urlWeather');
+    
+     
+    }
     if(localStorage.getItem('language')) {
       select.value = localStorage.getItem('language');
       state.language = select.value;
-     if( state.language!='be'){
-      city.value=weatherInput[ state.language]
-      getWeather()
-     }
-    getWeather()
-    if( state.language=='be'){
-      city.value=weatherInput.ru
-    }
+
+      /*if(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск'){ 
+        console.log('enter in if')
+        console.log(city.value)
+        /*if( state.language!='be'){
+          city.value=weatherInput[ state.language]
+          getWeather()
+         }*/
+        getWeather()
+        if( state.language=='be'&&(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск')){
+          city.value=weatherInput.ru
+          getWeather()
+          city.value=weatherInput.be
+        }
+      }  
+   
     showGreeting()
     getPrevQuotes()
     showDate()
@@ -266,17 +297,8 @@ function showTime() {
    document.querySelector('.quote-text').textContent=settingsTranslation[state.language].quote
     }
 
-    if(localStorage.getItem('city')) {
-      city.value = localStorage.getItem('city');
-      
-    }
-
-  if(localStorage.getItem('urlWeather')) {
     
-    urlWeather = localStorage.getItem('urlWeather');
-     
-    }
-  }
+  
   window.addEventListener('load', ()=>{
     getLocalStorage()
   })
@@ -329,6 +351,7 @@ function showTime() {
 
 // weather
  async function getWeather() { 
+  console.log('third enter')
   console.log( state.language)
 
   urlWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=29f235d059f1d8edd581b7f8c9e090b5&units=metric`;
@@ -346,7 +369,7 @@ function showTime() {
 }
 getWeather()
 city.addEventListener('change', getWeather)
-console.log( state.language)
+
 //quotes
 async function getQuotes() {  
   const quotes= "./js/data.json"
