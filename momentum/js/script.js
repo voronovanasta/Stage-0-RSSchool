@@ -136,14 +136,6 @@ select.addEventListener('change', function(){
     console.log('Вошел в иф если город минск')
     city.value=weatherInput[ state.language]
     getWeather()
-  /*if( state.language!='be'){
-    city.value=weatherInput[ state.language]
-    getWeather()
-  }
-  getWeather()
-  if( state.language=='be'){
-    city.value=weatherInput[ state.language]
-  }}*/
 }
 
 
@@ -267,14 +259,6 @@ function showTime() {
     if(localStorage.getItem('language')) {
       select.value = localStorage.getItem('language');
       state.language = select.value;
-
-      /*if(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск'){ 
-        console.log('enter in if')
-        console.log(city.value)
-        /*if( state.language!='be'){
-          city.value=weatherInput[ state.language]
-          getWeather()
-         }*/
         getWeather()
         if( state.language=='be'&&(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск')){
           city.value=weatherInput.ru
@@ -359,6 +343,17 @@ function showTime() {
   const res = await fetch(urlWeather);
   const data = await res.json(); 
  
+  if(data.cod === '404'&& city.value!='Мінск'&& city.value!='Минск'&&city.value!='Minsk'){
+
+   document.querySelector('.weather-error').textContent = `Error! city not found for '${city.value}'!`
+   temperature.textContent = ''
+   weatherDescription.textContent = ''
+   wind.textContent=''
+   humidity.textContent=''
+ 
+  }
+  
+
   weatherIcon.className = 'weather-icon owf';
 
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
@@ -367,7 +362,8 @@ function showTime() {
   wind.textContent=`${Math.floor(data.wind.speed)}${windSpeed[state.language]}`;
   humidity.textContent=`${data.main.humidity}%`;
 }
-getWeather()
+
+
 city.addEventListener('change', getWeather)
 
 //quotes
