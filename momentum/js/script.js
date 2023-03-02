@@ -319,6 +319,7 @@ function showTime() {
 
  function getSlideNext(){
   if(state.photoSource=='github'){
+    console.log(randomNum)
     if(randomNum<20 ){
       randomNum++;
       setBg();
@@ -342,6 +343,7 @@ function showTime() {
  slideNext.addEventListener('click', getSlideNext)
     
  function getSlidePrev(){
+  console.log(randomNum)
   if(state.photoSource=='github'){
     if(randomNum>1){
       randomNum--;
@@ -456,11 +458,53 @@ for(let i = 0; i < playList.length; i++) {
   li.append(div)
 }
 
+
+  //click on timeline to skip around
+  const timeline = document.querySelector(".timeline");
+  timeline.addEventListener("click", e => {
+    const timelineWidth = window.getComputedStyle(timeline).width;
+     const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+    audio.currentTime = timeToSeek;
+    
+  });
+  const progressBar = document.querySelector(".progress");
+  setInterval(() => {
+    
+    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+    
+    
+    document.querySelector(".player-time .current").textContent = formatTime(
+      audio.currentTime
+    );
+  }, 500);
+  
+  //click volume slider to change volume
+  
+  const volumeSlider = document.querySelector(".volume-slider");
+  volumeSlider.addEventListener('click', e => {
+    const sliderWidth = window.getComputedStyle(volumeSlider).width;
+    const newVolume = e.offsetX / parseInt(sliderWidth);
+    audio.volume = newVolume;
+    document.querySelector(".volume-percentage").style.width = newVolume * 100 + '%';
+  }, false)
+  
+  
+  function formatTime(seconds) {
+    let min = Math.floor((seconds / 60));
+    let sec = Math.floor(seconds - (min * 60));
+    if (sec < 10){ 
+        sec  = `0${sec}`;
+    };
+    return `${min}:${sec}`;
+  };
+  
 let songs = Array.from(document.querySelectorAll('.play-item'));
 const audio= new Audio;
 
 function playAudio(){
-  audio.currentTime = 0;
+
+  audio.currentime = Math.ceil(progressBar.style.width.slice(0,-1)/100*audio.duration)
+  
   audio.src = playList[playNum].src;
   track.textContent = `${playNum+1}`+'.   ' +  playList[playNum].title
   document.querySelector(".player-time .length").textContent =
@@ -496,7 +540,10 @@ function playAudio(){
         songs[i].classList.remove('selectedAudio')
       }
     }
+
     audio.pause();
+    audio.currentime = Math.ceil(progressBar.style.width.slice(0,-1)/100*audio.duration)
+    console.log(audio.currentime)
     miniaudioBtns[playNum].classList.remove('miniaudio-pause')
     playBtn.classList.remove('pause')
     isPlay=false;
@@ -552,40 +599,6 @@ function playNext (){
 
 playNextBtn.addEventListener('click',playNext )
 
-  //click on timeline to skip around
-const timeline = document.querySelector(".timeline");
-timeline.addEventListener("click", e => {
-  const timelineWidth = window.getComputedStyle(timeline).width;
-  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
-  audio.currentTime = timeToSeek;
-}, false);
-
-setInterval(() => {
-  const progressBar = document.querySelector(".progress");
-  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-  document.querySelector(".player-time .current").textContent = formatTime(
-    audio.currentTime
-  );
-}, 500);
-
-//click volume slider to change volume
-const volumeSlider = document.querySelector(".volume-slider");
-volumeSlider.addEventListener('click', e => {
-  const sliderWidth = window.getComputedStyle(volumeSlider).width;
-  const newVolume = e.offsetX / parseInt(sliderWidth);
-  audio.volume = newVolume;
-  document.querySelector(".volume-percentage").style.width = newVolume * 100 + '%';
-}, false)
-
-
-function formatTime(seconds) {
-  let min = Math.floor((seconds / 60));
-  let sec = Math.floor(seconds - (min * 60));
-  if (sec < 10){ 
-      sec  = `0${sec}`;
-  };
-  return `${min}:${sec}`;
-};
 
 //miniplay buttons
 const miniaudioBtns = Array.from(document.querySelectorAll('.miniaudio-button'));
@@ -692,7 +705,6 @@ async function getLinkToImageUnsplash() {
       }
     
       if(state.photoSource=='github'){
-        getRandomNum(1, 20);
         setBg()
       }
       if(state.photoSource=='unsplash'){
