@@ -260,6 +260,14 @@ function showTime() {
       select.value = localStorage.getItem('language');
       state.language = select.value;
         getWeather()
+        if(city.value==''){
+          document.querySelector('.weather-error').textContent = `Error! city not found for '${city.value}'!`
+          temperature.textContent = ''
+          weatherDescription.textContent = ''
+          wind.textContent=''
+          humidity.textContent=''
+
+        }
         if( state.language=='be'&&(city.value=='Minsk'||city.value=='Минск'||city.value=='Мінск')){
           city.value=weatherInput.ru
           getWeather()
@@ -343,7 +351,7 @@ function showTime() {
   const res = await fetch(urlWeather);
   const data = await res.json(); 
  
-  if(data.cod === '404'&& city.value!='Мінск'&& city.value!='Минск'&&city.value!='Minsk'){
+  if(data.cod === '404'&& (city.value!='Мінск'&& city.value!='Минск'&&city.value!='Minsk') || city.value==''){
 
    document.querySelector('.weather-error').textContent = `Error! city not found for '${city.value}'!`
    temperature.textContent = ''
