@@ -318,26 +318,50 @@ function showTime() {
  setBg()
 
  function getSlideNext(){
-  if(randomNum<20){
-    randomNum++;
-    setBg();
+  if(state.photoSource=='github'){
+    if(randomNum<20 ){
+      randomNum++;
+      setBg();
+    }
+    else{
+      randomNum = 1;
+      setBg();
+    }}
+    else{
+      if(state.photoSource=='unsplash'){
+        getLinkToImageUnsplash()
+      }
+      if(state.photoSource=='flickr'){
+        getLinkToImageFlickr()
+      }
+    }
+
   }
-  else{
-    randomNum = 1;
-    setBg();
-  }}
+  
 
  slideNext.addEventListener('click', getSlideNext)
     
  function getSlidePrev(){
-  if(randomNum>1){
-    randomNum--;
-    setBg();
+  if(state.photoSource=='github'){
+    if(randomNum>1){
+      randomNum--;
+      setBg();
+    }
+    else{
+      randomNum = 20;
+      setBg();
+    }
+
   }
   else{
-    randomNum = 20;
-    setBg();
-  }}
+    if(state.photoSource=='unsplash'){
+      getLinkToImageUnsplash()
+    }
+    if(state.photoSource=='flickr'){
+      getLinkToImageFlickr()
+    }
+  }
+ }
 
  slidePrev.addEventListener('click', getSlidePrev)
 
@@ -668,6 +692,7 @@ async function getLinkToImageUnsplash() {
       }
     
       if(state.photoSource=='github'){
+        getRandomNum(1, 20);
         setBg()
       }
       if(state.photoSource=='unsplash'){
